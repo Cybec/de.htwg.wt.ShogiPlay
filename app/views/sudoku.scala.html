@@ -7,7 +7,7 @@
     val row_ = row(scalar)
     val col_ = col(scalar)
     if(controller.isGiven(row_,col_)) "given" else
-    if(controller.isHighlighted(row_, col_)) "highlighted" else "normal"
+        if(controller.isHighlighted(row_, col_)) "highlighted" else "normal"
 }
 @toScalar(house:Int, cell:Int)=@{ house*size + cell}
 @row(scalar:Int)=@{((scalar % size) /blocksize) + (blocksize * (scalar /(size*blocksize)))}
@@ -19,31 +19,31 @@
 
     <div class="gamecontainer">
         <div class="game">
-            @for(houseIndex <- 0 until size) {
+        @for(houseIndex <- 0 until size) {
             <div class="house size@size">
-                @for(cellIndex <- 0 until size) {
-                    <div class="cell">
-                        @if(cell(houseIndex,cellIndex).isSet) {
+            @for(cellIndex <- 0 until size) {
+                <div class="cell">
+                    @if(cell(houseIndex,cellIndex).isSet) {
                         <div class="@{"number "+cellMode(houseIndex, cellIndex)}">
-                            @{cell(houseIndex,cellIndex).toString.take(1)}
+                        @{cell(houseIndex,cellIndex).toString.take(1)}
                         </div>} else {
-                            @if(cell(houseIndex,cellIndex).showCandidates) {
-                                @for(candidateIndex <- 0 until size) {
-                                    <div class="candidatecell">
-                                    @candidateIndex
-                                    </div>
-                                    @if(candidateIndex % blocksize == blocksize - 1) {
-                                        <div class="clear"></div>
-                                    }
+                        @if(cell(houseIndex,cellIndex).showCandidates) {
+                            @for(candidateIndex <- 0 until size) {
+                                <div class="candidatecell">
+                                @candidateIndex
+                                </div>
+                                @if(candidateIndex % blocksize == blocksize - 1) {
+                                    <div class="clear"></div>
                                 }
                             }
                         }
-                        @if(cellIndex % blocksize==blocksize-1){<div class="clear"></div>}
-                    </div>
-                }
+                    }
+                    @if(cellIndex % blocksize==blocksize-1){<div class="clear"></div>}
+                </div>
+            }
             </div>
             @if(houseIndex % blocksize==blocksize-1){<div class="clear"></div>}
-            }
+        }
         </div>
     </div>
 }
