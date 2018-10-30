@@ -2,10 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Controller for Sudoku
+# Controller for Shogi
 GET     /                           controllers.ShogiController.shogi
 GET     /new                        controllers.ShogiController.newBoard
-
+GET     /empty                      controllers.ShogiController.emptyBoard
+GET     /undo                       controllers.ShogiController.undo
+GET     /redo                       controllers.ShogiController.redo
+GET     /pmv/:x/:y                  controllers.ShogiController.possibleMoves(x:Int, y:Int)
+GET     /mv/:x/:y/:i/:j             controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
+GET     /mv/:x/:y/:i/:j/:promotion  controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
+GET     /about                      controllers.ShogiController.about
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
