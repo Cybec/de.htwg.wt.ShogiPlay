@@ -1,5 +1,8 @@
 [<img src="https://img.shields.io/travis/playframework/play-scala-starter-example.svg"/>](https://travis-ci.org/playframework/play-scala-starter-example)
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/Cybec/de.htwg.wt.ShogiPlay.svg?columns=all)](https://waffle.io/Cybec/de.htwg.wt.ShogiPlay)
+
+
 # HTWG play-scala-seed
 
 This is a starter application using Play for the Lecture Web Technologies at HTWG.
