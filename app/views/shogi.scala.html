@@ -1,5 +1,7 @@
 @(controller: de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface, size: Int)
 
+
+
 @cell(col: Int, row: Int) = @{
     controller.boardToArray()(col)(row).toString
 }
@@ -7,7 +9,7 @@
     controller.getContainer._1.mkString(", ")
 }
 @playerContainer_2() = @{
-    controller.getContainer._1.mkString(", ")
+    controller.getContainer._2.mkString(", ")
 }
 
 
@@ -30,6 +32,7 @@
         }
         </div>
 
+        @*<img src="@routes.Assets.versioned("images/player1/50x50/Bishop_50x50.png")">*@
 
         <div class="playerContainer">
         @playerContainer_2
