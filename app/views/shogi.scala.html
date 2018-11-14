@@ -22,7 +22,7 @@
         @for(row <- 0 until size) {
             <div class="rowGroup">
             @for(col <- 0 until size) {
-                <div class="cell">
+                <div class="cell" col=@col row=@row>
                 @cell(col, row)
                 </div>
             }
