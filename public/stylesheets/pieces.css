@@ -1,0 +1,54 @@
+html {
+    text-align: center;
+}
+
+body {
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.table {
+    display: table;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: #7a8a99;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.playerContainer {
+    padding: 1em 0;
+    text-align: center;
+    height: 1em;
+
+    border-style: solid;
+    border-width: 0.1em;
+
+    background: #ffebb6;
+    border-color: #7a8a99;
+}
+
+.rowGroup {
+    display: table-row-group;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+
+    padding: 1em 0;
+    text-align: center;
+
+    width: 3em;
+    height: 1em;
+
+    border-style: solid;
+    border-width: 0.1em;
+
+    background: #ffebb6;
+    border-color: #7a8a99;
+}
