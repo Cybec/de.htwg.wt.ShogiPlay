@@ -1,7 +1,8 @@
 html {
     text-align: center;
 }
-body{
+
+body {
     display: inline-block;
     margin: 0px auto;
     text-align: center;
@@ -16,7 +17,7 @@ body{
     margin-bottom: 0.5em;
 }
 
-.playerContainer{
+.playerContainer {
     padding: 1em 0;
     text-align: center;
     height: 1em;

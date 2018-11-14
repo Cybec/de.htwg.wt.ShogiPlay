@@ -2,45 +2,36 @@
 
 
 
-    @cell(col: Int, row: Int) = @{
-        controller.boardToArray()(col)(row).toString
-    }
+@cell(col: Int, row: Int) = @{
+    controller.boardToArray()(col)(row).toString
+}
 
-    @playerContainer_1() = @{
-        controller.getContainer._1.mkString(", ")
-    }
+@playerContainer_1() = @{
+    controller.getContainer._1.mkString(", ")
+}
 
-    @playerContainer_2() = @{
-        controller.getContainer._2.mkString(", ")
-    }
+@playerContainer_2() = @{
+    controller.getContainer._2.mkString(", ")
+}
 
 
-    @main("Shogi Gamefield") {
-        @*---------------------------------------------Spielfeld---------------------------------------------*@
-        <div>
-            <div class="playerContainer"> @playerContainer_1 </div>
-            <div class="table">
-            @for(row <- 0 until size) {
-                <div class="rowGroup">
-                @for(col <- 0 until size) {
-                    <div class="cell">
-                    @cell(col, row)
-                    </div>
-                }
+@main("Shogi Gamefield") {
+    <div>
+        <div class="playerContainer"> @playerContainer_1 </div>
+        <div class="table">
+        @for(row <- 0 until size) {
+            <div class="rowGroup">
+            @for(col <- 0 until size) {
+                <div class="cell">
+                @cell(col, row)
                 </div>
             }
             </div>
-            <div class="playerContainer"> @playerContainer_2 </div>
+        }
         </div>
-        @*---------------------------------------------Spielfeld---------------------------------------------*@
-        <div class="btn-toolbar">
-            <div class="btn-group">
-                <button class="btn">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-            </div>
-        </div>
-    }
+        <div class="playerContainer"> @playerContainer_2 </div>
+    </div>
+}
 
 
 
