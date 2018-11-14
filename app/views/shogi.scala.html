@@ -16,13 +16,16 @@
 
 
 @main("Shogi Gamefield") {
+    <noscript>
+        <h3>This site requires JavaScript</h3>
+    </noscript>
     <div>
         <div class="playerContainer"> @playerContainer_1 </div>
         <div class="table">
         @for(row <- 0 until size) {
             <div class="rowGroup">
             @for(col <- 0 until size) {
-                <div class="cell">
+                <div class="cell" id=""+idCol>
                 @cell(col, row)
                 </div>
             }
@@ -31,6 +34,15 @@
         </div>
         <div class="playerContainer"> @playerContainer_2 </div>
     </div>
+
+    <script language="javascript" type="text/javascript">
+            <!-- Hide JavaScript
+            var list = document.getElementsByClassName("cell");
+            for (var i = 0; i <= list.length; i++){
+                list[i].innerHTML = i;
+            }
+            -->
+    </script>
 }
 
 
