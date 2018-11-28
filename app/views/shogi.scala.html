@@ -16,14 +16,14 @@
 
 
 @main("Shogi Gamefield") {
-    <div>
+    <div class="gamefield">
         <div class="playerContainer"> @playerContainer_1 </div>
         <div class="table">
         @for(row <- 0 until size) {
             <div class="rowGroup">
             @for(col <- 0 until size) {
                 <div class="cell" col=@col row=@row>
-                @cell(col, row)
+                @cell(col, row)&nbsp;
                 </div>
             }
             </div>
