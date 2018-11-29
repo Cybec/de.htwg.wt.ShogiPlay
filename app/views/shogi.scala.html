@@ -1,9 +1,24 @@
 @(controller: de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface, size: Int)
 
+@getPlayerIcon(col: Int, row: Int) = @{
+    val player = if(getPlayerOfPiece(col, row)) "1" else "2"
+    "images/player" + player + "/50x50/" + cellPieceFullName(col, row) + "_50x50.png"
+}
 
+@boardArray = @{
+    controller.boardToArray()
+}
 
 @cell(col: Int, row: Int) = @{
-    controller.boardToArray()(col)(row).toString
+    boardArray(col)(row).toString
+}
+
+@cellPieceFullName(col: Int, row: Int) = @{
+    boardArray(col)(row).toStringLong
+}
+
+@getPlayerOfPiece(col: Int, row: Int) = @{
+    boardArray(col)(row).isFirstOwner
 }
 
 @playerContainer_1() = @{
@@ -23,7 +38,13 @@
             <div class="rowGroup">
             @for(col <- 0 until size) {
                 <div class="cell" col=@col row=@row>
-                @cell(col, row)&nbsp;
+                    @* @cell(col, row)&nbsp;*@
+                    @if(cell(col, row).trim.nonEmpty) {
+                        <img src="@routes.Assets.versioned(getPlayerIcon(col, row))" width="50" height="50"/>
+                    } else {
+                        <img style="opacity: 0;" width="50" height="50"/>
+                    }
+
                 </div>
             }
             </div>
