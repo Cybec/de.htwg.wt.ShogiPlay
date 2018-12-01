@@ -32,7 +32,18 @@
 
 @main("Shogi Gamefield") {
     <div class="gamefield">
-        <div class="playerContainer"> @playerContainer_1 </div>
+        <div class="playerContainer">
+            @for(piece <- controller.getContainer._1){
+                @if(piece.toStringLong.trim.nonEmpty) {
+                    <img src="@routes.Assets.versioned("images/player1/50x50/" + piece.toStringLong + "_50x50.png")" width="50" height="50"/>
+                }
+            }
+            @if(controller.getContainer._1.isEmpty){
+                <img style="opacity: 0;" width="50" height="50"/>
+            }
+        </div>
+
+
         <div class="table">
         @for(row <- 0 until size) {
             <div class="rowGroup">
@@ -49,7 +60,16 @@
             </div>
         }
         </div>
-        <div class="playerContainer"> @playerContainer_2 </div>
+        <div class="playerContainer">
+            @for(piece <- controller.getContainer._2){
+                @if(piece.toStringLong.trim.nonEmpty) {
+                    <img src="@routes.Assets.versioned("images/player2/50x50/" + piece.toStringLong + "_50x50.png")" width="50" height="50"/>
+                }
+            }
+            @if(controller.getContainer._2.isEmpty){
+                <img style="opacity: 0;" width="50" height="50"/>
+            }
+        </div>
     </div>
 }
 
