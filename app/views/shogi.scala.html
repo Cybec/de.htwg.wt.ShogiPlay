@@ -2,7 +2,7 @@
 
 @getPlayerIcon(col: Int, row: Int) = @{
     val player = if(getPlayerOfPiece(col, row)) "1" else "2"
-    "images/player" + player + "/50x50/" + cellPieceFullName(col, row) + "_50x50.png"
+    "images/player" + player + "/100x100/" + cellPieceFullName(col, row) + "_100x100.png"
 }
 
 @boardArray = @{
@@ -35,7 +35,7 @@
         <div class="playerContainer">
             @for(piece <- controller.getContainer._1){
                 @if(piece.toStringLong.trim.nonEmpty) {
-                    <img src="@routes.Assets.versioned("images/player1/50x50/" + piece.toStringLong + "_50x50.png")" width="50" height="50"/>
+                    <img src="@routes.Assets.versioned("images/player1/100x100/" + piece.toStringLong + "_100x100.png")" width="50" height="50"/>
                 }
             }
             @if(controller.getContainer._1.isEmpty){
@@ -63,7 +63,7 @@
         <div class="playerContainer">
             @for(piece <- controller.getContainer._2){
                 @if(piece.toStringLong.trim.nonEmpty) {
-                    <img src="@routes.Assets.versioned("images/player2/50x50/" + piece.toStringLong + "_50x50.png")" width="50" height="50"/>
+                        <img src="@routes.Assets.versioned("images/player2/100x100/" + piece.toStringLong + "_100x100.png")" width="50" height="50"/>
                 }
             }
             @if(controller.getContainer._2.isEmpty){
