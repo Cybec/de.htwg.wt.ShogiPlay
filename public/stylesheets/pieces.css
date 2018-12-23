@@ -22,6 +22,9 @@ body {
     margin: auto;
     padding: 10px;
 
+    min-width: 525px;
+    min-height: 585px;
+
     overflow: auto;
     height: 90vh;
 
@@ -92,7 +95,27 @@ body {
     }
 
 }
+
+@media (max-width: 810px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 50px;
+        width: 50px;
+    }
+    .img_style_logo{
+        height: 40px;
+        width: 40px;
+    }
+
+}
 @media (max-height: 710px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 40px;
+        width: 40px;
+    }
+}
+@media (max-width: 640px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .img_style{
         height: 40px;
