@@ -5,7 +5,6 @@
     "images/player" + player + "/100x100/" + cellPieceFullName(col, row) + "_100x100.png"
 }
 
-
 @boardArray = @{
     controller.boardToArray()
 }
@@ -45,11 +44,11 @@
         </div>
 
 
-        <div class="table">
+        <div class="table buttonbarcontainer">
         @for(row <- 0 until size) {
-            <div class="rowGroup">
+            <div class="rowGroup btn-group">
             @for(col <- 0 until size) {
-                <div class="cell" col=@col row=@row>
+                <div id="@col-@row" class="cell btn btn-primary" onclick="myFunction(this.id)" col=@col row=@row>
                     @* @cell(col, row)&nbsp;*@
                     @if(cell(col, row).trim.nonEmpty) {
                         <img class="img_style" src="@routes.Assets.versioned(getPlayerIcon(col, row))"/>
@@ -71,6 +70,8 @@
                 <img class="img_style" style="opacity: 0;" />
             }
         </div>
+
+        <p id="demo"></p>
     </div>
 }
 
