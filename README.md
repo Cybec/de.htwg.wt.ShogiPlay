@@ -54,3 +54,54 @@ To access your existing game from the Software Engineering class do the followin
 * Play automatically uses jars in the lib, but you need to restart the play server
 
 Now you should be able to access the classes of your game from your play Controller classes. 
+
+ 
+
+ 
+
+ <br><br><br><br><br><br><br><br><br><br>
+
+ 
+
+ 
+
+
+![GitHub Logo](./cybec.png) - *Organisation design created by Dennis Baldauf* 
+
+(Folgende Dateien sind nicht mit in die Code-Coverage eingeflossen: Shogi.scala, PieceInterface.scala, /aview/)
+
+# Sho - Shogi
+
+
+Name         | Github Benutzer
+--- | ---
+Nick Strehle | ni431str
+Mert Zeybek | me431zey
+
+Die Dokumentation zu diesem dem Hauptspiel finden Sie [hier](./Dokumentation.md)
+
+Die Github Seite: [https://github.com/Cybec/ShoShogi]
+
+
+
+
+Beschreibung
+=========================
+Dies ist ein Projekt welches für die Vorlesung "Web Technologien" an der HTWG entwickelt wird.
+
+
+Hauptziel der Vorlesung ist es, die nutzung von Web Technologien in einer agilen Entwicklungsmethodik zu erlernen.
+
+Es beinhaltet
+
+- HTTP
+- Play Server
+- CSS
+- Bootstrap
+- JavaScript
+- jQuery & AJAX
+- Comet and WebSockets
+- Polymer
+- Vue.js
+- Authentication
+- Deployment
