@@ -73,6 +73,10 @@ body {
     background: #ffebb6;
     border-color: #7a8a99;
 }
+.conquered {
+     border-width: 0;
+     background: #ffebb6;
+ }
 
 .img_style{
     height: 55px;

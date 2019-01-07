@@ -15,6 +15,7 @@ GET     /mvcp/:pieceAbbrevation/:x/:y   controllers.ShogiController.moveConquere
 GET     /pmvcp/:pieceAbbrevation        controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
 GET     /save                           controllers.ShogiController.save()
 GET     /load                           controllers.ShogiController.load()
+GET     /end                            controllers.ShogiController.end()
 GET     /about                          controllers.ShogiController.about
 
 # Map static resources from the /public folder to the /assets URL path
