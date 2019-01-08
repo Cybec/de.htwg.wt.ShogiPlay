@@ -1,54 +1,128 @@
-html {
-    text-align: center;
-}
-
-body {
+html, body {
     display: inline-block;
-    margin: 0px auto;
     text-align: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    border-collapse: collapse;
+}
+body {
+    background-color: #cccccc;
+    background-image: linear-gradient(#ffebb6, white);
 }
 
-.table {
-    display: table;
-    border-style: solid;
-    border-width: 0.1em;
-    border-color: #7a8a99;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+.gamefield {
+    /*margin-left: 30%;*/
+    /*margin-right: 30%;*/
+    max-width: 100vh;
+    max-height: 100vw;
+    margin: auto;
+    padding: 10px;
+
+    min-width: 525px;
+    min-height: 585px;
+
+    overflow: auto;
+    height: 90vh;
+
+    text-align: center;
+    vertical-align: middle;
 }
 
 .playerContainer {
-    padding: 1em 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     text-align: center;
-    height: 1em;
+    font-weight: bold;
+
 
     border-style: solid;
     border-width: 0.1em;
 
     background: #ffebb6;
     border-color: #7a8a99;
+}
+
+.table {
+    display: table;
+
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: #7a8a99;
+
+    text-align: center;
 }
 
 .rowGroup {
     display: table-row-group;
 }
 
-.row {
-    display: table-row;
-}
-
 .cell {
     display: table-cell;
+    margin: auto;
+    /*width: 10%;*/
 
-    padding: 1em 0;
     text-align: center;
-
-    width: 3em;
-    height: 1em;
+    font-weight: bold;
 
     border-style: solid;
-    border-width: 0.1em;
-
+    border-width: 0.15em;
     background: #ffebb6;
     border-color: #7a8a99;
+}
+.conquered {
+     border-width: 0;
+     background: #ffebb6;
+ }
+
+.img_style{
+    height: 55px;
+    width: 55px;
+}
+.img_style_logo{
+    height: 40px;
+    width: 40px;
+}
+
+@media (max-height: 890px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 40px;
+        width: 40px;
+    }
+    .img_style_logo{
+        height: 30px;
+        width: 30px;
+    }
+
+}
+
+@media (max-width: 810px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 40px;
+        width: 40px;
+    }
+    .img_style_logo{
+        height: 30px;
+        width: 30px;
+    }
+
+}
+@media (max-height: 710px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 30px;
+        width: 30px;
+    }
+}
+@media (max-width: 640px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .img_style{
+        height: 30px;
+        width: 30px;
+    }
 }

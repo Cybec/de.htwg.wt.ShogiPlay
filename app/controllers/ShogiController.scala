@@ -53,18 +53,51 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
       case MoveResult.invalidMove => Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
       case MoveResult.validMove => {
         if (gameController.promotable((i, j))) {
-          Ok(gameController.boardToString() + "\n\n" + "Do u want to promote your piece? /y for yes!")
+          Ok(views.html.shogi_YesNo(gameController, gameController.boardSize))
         } else
           boardOkHTML
       }
-      case MoveResult.kingSlain => Ok("King Slain YAY")
+      case MoveResult.kingSlain => Ok(views.html.shogi_YesNoNewGame(gameController, gameController.boardSize))
     }
   }
+
 
   def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String) = Action {
     if (promotion == "y")
       gameController.promotePiece(i, j)
     boardOkHTML
+  }
+
+  def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int) = Action {
+    if (gameController.moveConqueredPiece(pieceAbbrevation, (x, y))) {
+      boardOkHTML
+    } else {
+      Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
+    }
+  }
+
+
+  def possibleMovesConqueredPiece(pieceAbbrevation: String) = Action {
+    val list = gameController.getPossibleMovesConqueredPiece(pieceAbbrevation)
+    if (list.isEmpty) {
+      Ok(gameController.boardToString() + "\n\n" + "</h1>There are no moves!</h1>")
+    } else {
+      Ok(gameController.boardToString() + "\n\n" + list.toString())
+    }
+  }
+
+  def save() = Action {
+    gameController.save
+    boardOkHTML
+  }
+
+  def load() = Action {
+    gameController.load
+    boardOkHTML
+  }
+
+  def end() = Action {
+    Ok(views.html.shogiPlain(gameController, gameController.boardSize))
   }
 
   def about = Action {
