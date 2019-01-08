@@ -1,9 +1,17 @@
 var lastPM = "";
 var last_clicked_id = "";
 
+
+$(document).ready(function () {
+    $(".btn").click(function () {
+        clickOnBoard($(this).attr('id'));
+        // alert($(this).id)
+
+    });
+});
+
+
 function clickOnBoard(clicked_id) {
-
-
     if (lastPM.includes(clicked_id.replace("-", ","))) {
         if ('0123456789'.indexOf(last_clicked_id.charAt(0)) !== -1) {
             window.location.replace("http://localhost:9000/mv/" +
@@ -40,3 +48,6 @@ function clickOnBoard(clicked_id) {
     });
     last_clicked_id = clicked_id;
 }
+
+
+
