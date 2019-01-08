@@ -3,7 +3,9 @@ package controllers
 import de.htwg.se.Shogi.Shogi
 import de.htwg.se.Shogi.aview.Tui
 import de.htwg.se.Shogi.controller.controllerComponent.{ControllerInterface, MoveResult}
+import de.htwg.se.Shogi.model.pieceComponent.PieceInterface
 import javax.inject._
+import play.api.libs.json._
 import play.api.mvc._
 
 @Singleton
@@ -102,4 +104,51 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
   def about: Action[AnyContent] = Action {
     Ok(views.html.aboutTheGame())
   }
+
+
+  implicit val cellWrites: Writes[PieceInterface] = (piece: PieceInterface) => Json.obj(
+    "pieceName" -> piece.toStringLong,
+    "firstPlayer" -> piece.isFirstOwner)
+
+  def boardToJason: Action[AnyContent] = Action {
+//    //    implicit val format = Json.format[PieceInterface]
+//    val board = gameController.getBoardClone
+//
+//    Ok(Json.obj(
+//      "playerFirstConquered" -> Json.toJson(board.getContainer._1.distinct),
+//      "playerSecondConquered" -> Json.toJson(board.getContainer._2.distinct),
+//      "board" -> Json.toJson(
+//        for {
+//          col <- 0 until board.size
+//          row <- 0 until board.size
+//        } yield {
+//          Json.obj(
+//            "row" -> row,
+//            "col" -> col,
+//            "piece" -> Json.toJson(board.cell(col, row)))
+//        }))
+//    )
+    Ok(views.html.shogiGamefield(gameController, gameController.boardSize))
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

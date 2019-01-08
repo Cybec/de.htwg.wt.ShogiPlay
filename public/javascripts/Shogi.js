@@ -5,25 +5,72 @@ var last_clicked_id = "";
 $(document).ready(function () {
     $(".btn").click(function () {
         clickOnBoard($(this).attr('id'));
-        // alert($(this).id)
-
+        // updateBoard()
     });
 });
 
 
+function updateBoard() {
+    $.ajax(
+        {
+            type: 'GET',
+            url: "boardToJason",
+            dataType: 'html',
+
+            success: function (result) {
+                $('#gamefield').html(result)
+            }
+        }
+    )
+}
+
 function clickOnBoard(clicked_id) {
+    console.log(clicked_id);
     if (lastPM.includes(clicked_id.replace("-", ","))) {
         if ('0123456789'.indexOf(last_clicked_id.charAt(0)) !== -1) {
-            window.location.replace("http://localhost:9000/mv/" +
-                last_clicked_id.charAt(0) + "/" +
-                last_clicked_id.charAt(2) + "/" +
-                clicked_id.charAt(0) + "/" +
-                clicked_id.charAt(2));
+            $.ajax(
+                {
+                    type: 'GET',
+                    url: "http://localhost:9000/mv/" +
+                        last_clicked_id.charAt(0) + "/" +
+                        last_clicked_id.charAt(2) + "/" +
+                        clicked_id.charAt(0) + "/" +
+                        clicked_id.charAt(2),
+                    dataType: 'html',
+
+                    success: function (result) {
+                    }
+                }
+            )
+            updateBoard()
+            resetGlobalVal()
+
+
+            // window.location.replace("http://localhost:9000/mv/" +
+            //     last_clicked_id.charAt(0) + "/" +
+            //     last_clicked_id.charAt(2) + "/" +
+            //     clicked_id.charAt(0) + "/" +
+            //     clicked_id.charAt(2));
         } else {
-            window.location.replace("http://localhost:9000/mvcp/"
-                + last_clicked_id + "/" +
-                clicked_id.charAt(0) + "/" +
-                clicked_id.charAt(2));
+            $.ajax(
+                {
+                    type: 'GET',
+                    url: "http://localhost:9000/mvcp/"
+                        + last_clicked_id + "/" +
+                        clicked_id.charAt(0) + "/" +
+                        clicked_id.charAt(2),
+                    dataType: 'html',
+
+                    success: function (result) {
+                    }
+                }
+            )
+            updateBoard()
+            resetGlobalVal()
+            // window.location.replace("http://localhost:9000/mvcp/"
+            //     + last_clicked_id + "/" +
+            //     clicked_id.charAt(0) + "/" +
+            //     clicked_id.charAt(2));
         }
     }
 
@@ -49,5 +96,9 @@ function clickOnBoard(clicked_id) {
     last_clicked_id = clicked_id;
 }
 
+function resetGlobalVal() {
+    var lastPM = "";
+    var last_clicked_id = "";
+}
 
 

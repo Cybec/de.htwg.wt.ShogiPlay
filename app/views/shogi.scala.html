@@ -39,7 +39,7 @@
 
 
 @main("Shogi Gamefield") {
-    <div class="gamefield">
+    <div id="gamefield" class="gamefield">
         <div class="playerContainer">
             @for(piece <- controller.getContainer._1) {
                 @if(piece.toStringLong.trim.nonEmpty) {
