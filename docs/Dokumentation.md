@@ -199,15 +199,15 @@ Die Spielregeln wurden der Seite [www.ancientchess.com](http://ancientchess.com/
 
 Das folgende Bild zeigt ein leeres Spielfeld bevor ein neues Spiel gestartet worden ist. Unter dem Menüpunkt Game kann ein neues Spiel gestartet werden.
 
-![EmptyBoard](./Pictures/emptyBoard.png)
+![EmptyBoard](../Pictures/emptyBoard.png)
 
 In dem darauf aufgehenden Pop-Up Fenster können die Namen der Spieler eingetragen werden. Falls das Feld leer gelassen wird, wird dem Spieler automatisch der Name "Player 1" oder "Player 2" zugewiesen.
 
-![EmptyBoard](./Pictures/newGamePopUp.png)
+![EmptyBoard](../Pictures/newGamePopUp.png)
 
 Nach bestätigung wird das Board mit den Spielfiguren gefüllt.
 
-![EmptyBoard](./Pictures/initialBoard.png)
+![EmptyBoard](../Pictures/initialBoard.png)
 
 Spieler 1 fängt an indem er eine Figur per Mausklick auswählt und auf ein markiertes Feld danach klickt. Dadurch wandert die Figur auf das ausgewählte Feld. Nach dem Selben Prinzip können eroberte Spielsteine wieeder aufs Board gesetzt werden.
 
