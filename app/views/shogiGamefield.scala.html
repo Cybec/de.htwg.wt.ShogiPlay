@@ -1,0 +1,91 @@
+@(controller: de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface, size: Int)
+
+@getPlayerIcon(col: Int, row: Int) = @{
+    val player = if(getPlayerOfPiece(col, row)) "1" else "2"
+    "images/player" + player + "/1000x1000/" + cellPieceFullName(col, row) + ".png"
+}
+
+@boardArray = @{
+    controller.boardToArray()
+}
+
+@cell(col: Int, row: Int) = @{
+    boardArray(col)(row).toString
+}
+
+@cellPieceFullName(col: Int, row: Int) = @{
+    boardArray(col)(row).toStringLong
+}
+
+@getPlayerOfPiece(col: Int, row: Int) = @{
+    boardArray(col)(row).isFirstOwner
+}
+
+@playerContainer_1() = @{
+    controller.getContainer._1.mkString(", ")
+}
+
+@playerContainer_2() = @{
+    controller.getContainer._2.mkString(", ")
+}
+
+@getPosMoves(col: Int, row: Int) = @{
+    controller.getPossibleMoves((col, row)).mkString("-")
+}
+
+@getPosMovesConquered(piece: String) = @{
+    controller.getPossibleMovesConqueredPiece(piece).mkString("-")
+}
+
+
+<div class="playerContainer">
+    @for(piece <- controller.getContainer._1) {
+        @if(piece.toStringLong.trim.nonEmpty) {
+            <div id="@piece.toString.trim" class="conquered btn btn-primary">
+                <label id="Label_@piece.toString.trim" style="display: none;">@getPosMovesConquered(piece.toString.trim)</label>
+                <img class="img_style" src="@routes.Assets.versioned("images/player1/1000x1000/" + piece.toStringLong + ".png")" />
+            </div>
+        }
+    }
+    @if(controller.getContainer._1.isEmpty) {
+        <img class="img_style" style="opacity: 0;" />
+    }
+</div>
+
+
+<div class="table buttonbarcontainer">
+@for(row <- 0 until size) {
+    <div class="rowGroup btn-group">
+    @for(col <- 0 until size) {
+        <div id="@col-@row" class="cell btn btn-primary" col=@col row=@row>
+            <label id="Label_@col-@row" style="display: none;">@getPosMoves(col, row)</label>
+            @* @cell(col, row)&nbsp;*@
+            @if(cell(col, row).trim.nonEmpty) {
+                <img class="img_style" src="@routes.Assets.versioned(getPlayerIcon(col, row))"/>
+            } else {
+                <img class="img_style" style="opacity: 0;" />
+            }
+        </div>
+    }
+    </div>
+}
+</div>
+<div class="playerContainer">
+    @for(piece <- controller.getContainer._2) {
+        @if(piece.toStringLong.trim.nonEmpty) {
+            <div id="@piece.toString.trim" class="conquered btn btn-primary">
+                <label id="Label_@piece.toString.trim" style="display: none;">@getPosMovesConquered(piece.toString.trim)</label>
+                <img class="img_style" src="@routes.Assets.versioned("images/player2/1000x1000/" + piece.toStringLong + ".png")" />
+            </div>
+        }
+    }
+    @if(controller.getContainer._2.isEmpty) {
+        <img class="img_style" style="opacity: 0;" />
+    }
+</div>
+
+
+
+
+
+

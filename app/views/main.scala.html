@@ -16,7 +16,11 @@
         @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/4.1.3/css/bootstraptheme.min.css">*@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
         @*ende*@
-    <script src="@routes.Assets.versioned("javascripts/Shogi.js")" ></script>
+    @*<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="@routes.Assets.versioned("javascripts/Shogi.js")" ></script>
+
+
 
     <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/pieces.css")">
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
@@ -28,7 +32,7 @@
         * the page content. *@
         @content
         @*Die naechsten 3 Zeilen werden für navbar benoetigt*@
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
