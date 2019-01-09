@@ -52,13 +52,13 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   def movePiece(x: Int, y: Int, i: Int, j: Int): Action[AnyContent] = Action {
     gameController.movePiece((x, y), (i, j)) match {
-      case MoveResult.invalidMove => Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
+      case MoveResult.invalidMove => Ok("<p>InvalidMove</p>")
       case MoveResult.validMove =>
         if (gameController.promotable((i, j))) {
-          Ok(views.html.shogi_YesNo(gameController, gameController.boardSize))
+          Ok("<p>Promotable</p>")
         } else
           boardOkHTML
-      case MoveResult.kingSlain => Ok(views.html.shogi_YesNoNewGame(gameController, gameController.boardSize))
+      case MoveResult.kingSlain => Ok("<p>KingSlain</p>")
     }
   }
 
@@ -110,7 +110,7 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
     "pieceName" -> piece.toStringLong,
     "firstPlayer" -> piece.isFirstOwner)
 
-  def boardToJason: Action[AnyContent] = Action {
+  def boardGamefieldHTML: Action[AnyContent] = Action {
 //    //    implicit val format = Json.format[PieceInterface]
 //    val board = gameController.getBoardClone
 //

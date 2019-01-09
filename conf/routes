@@ -23,4 +23,4 @@ GET         /assets/*file                        controllers.Assets.versioned(pa
 
 
 
-GET        /boardToJason             controllers.ShogiController.boardToJason
+GET        /boardGamefieldHTML             controllers.ShogiController.boardGamefieldHTML
