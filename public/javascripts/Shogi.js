@@ -1,6 +1,26 @@
 var lastPM = "";
 var last_clicked_id = "";
 var kingSlainEnd = false;
+var simuList;
+var simuList_All = [];
+var simuCount = 1;
+
+$.ajax(
+    {
+        type: 'GET',
+        url: "SimuToJson",
+        dataType: 'Json',
+
+        success: function (simu) {
+            for (var k in simu) {
+                simuList_All.push(simu[k])
+            }
+            simuList = simuList_All[0];
+        }
+    }
+);
+
+
 $(document).on("click", ".btn", function () {
     if (!kingSlainEnd) {
         clickOnBoard($(this).attr('id'));
@@ -9,6 +29,10 @@ $(document).on("click", ".btn", function () {
 
 $(document).on("click", "#logo", function () {
     updateBoard()
+});
+
+$(document).on("click", "#Simulation", function () {
+    Simulation()
 });
 
 $(document).on("click", ".dropdown-item", function () {
@@ -40,6 +64,13 @@ $(document).on("click", ".dropdown-item", function () {
 
 function newGame() {
     kingSlainEnd = false;
+    lastPM = "";
+    last_clicked_id = "";
+
+    simuList = simuList_All[0];
+    simuCount = 0;
+    helper = 0;
+    helper2 = 0;
     $.ajax(
         {
             type: 'GET',
@@ -219,16 +250,16 @@ function clickOnBoard(clicked_id) {
 
                     success: function (result) {
                         if (result === "<p>Promotable</p>") {
-                            Promotable(destLink)
+                            Promotable(destLink);
                         } else if (result === "<p>InvalidMove</p>") {
                             alert("This move is not possible!")
                         } else if (result === "<p>KingSlain</p>") {
-                            KingSlain()
+                            KingSlain();
                         }
 
 
-                        updateBoard()
-                        resetGlobalVal()
+                        updateBoard();
+                        resetGlobalVal();
                     }
                 }
             )
@@ -243,8 +274,8 @@ function clickOnBoard(clicked_id) {
                     dataType: 'html',
 
                     success: function () {
-                        updateBoard()
-                        resetGlobalVal()
+                        updateBoard();
+                        resetGlobalVal();
                     }
                 }
             )
@@ -265,3 +296,34 @@ function resetGlobalVal() {
 }
 
 
+var helper = 0;
+var helper2 = 0;
+
+function Simulation() {
+    $('#' + simuList[helper][helper2]).fadeIn(100).fadeIn(100)
+        .fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
+        .fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+
+    clickOnBoard(simuList[helper][helper2]);
+
+
+    helper2 += 1;
+    if (helper2 >= 2) {
+        helper2 = 0;
+        helper += 1;
+    }
+    if (helper >= simuList.length) {
+        helper = 0;
+        helper2 = 0;
+        if (simuCount >= simuList_All.length) {
+            alert("Simulation ended!");
+            simuList = simuList_All[0];
+            simuCount = 0;
+            helper = 0;
+            helper2 = 0;
+        } else {
+            simuList = simuList_All[simuCount];
+            simuCount += 1;
+        }
+    }
+}
