@@ -3,24 +3,25 @@
 # ~~~~
 
 # Controller for Shogi
-GET         /                                    controllers.ShogiController.shogi
-GET         /new                                 controllers.ShogiController.newBoard
-GET         /empty                               controllers.ShogiController.emptyBoard
-GET         /undo                                controllers.ShogiController.undo
-GET         /redo                                controllers.ShogiController.redo
-GET         /pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
-GET         /mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
-GET         /mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
-GET         /mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
-GET         /pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
-GET         /save                                controllers.ShogiController.save()
-GET         /load                                controllers.ShogiController.load()
-GET         /end                                 controllers.ShogiController.end()
-GET         /about                               controllers.ShogiController.about
+GET        /                                    controllers.ShogiController.shogi
+GET        /new                                 controllers.ShogiController.newBoard
+GET        /empty                               controllers.ShogiController.emptyBoard
+GET        /undo                                controllers.ShogiController.undo
+GET        /redo                                controllers.ShogiController.redo
+GET        /pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
+GET        /mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
+GET        /mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
+GET        /mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
+GET        /pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
+GET        /save                                controllers.ShogiController.save()
+GET        /load                                controllers.ShogiController.load()
+GET        /end                                 controllers.ShogiController.end()
+GET        /about                               controllers.ShogiController.about
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                        controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                        controllers.Assets.versioned(path="/public", file: Asset)
 
 
 
-GET        /boardGamefieldHTML             controllers.ShogiController.boardGamefieldHTML
+GET        /boardGamefieldHTML                  controllers.ShogiController.boardGamefieldHTML
+GET        /SimuToJson                          controllers.ShogiController.SimuToJson
