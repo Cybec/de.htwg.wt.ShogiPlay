@@ -1,12 +1,18 @@
 package controllers
 
+import akka.actor.{Actor, ActorRef, Props}
 import de.htwg.se.Shogi.Shogi
 import de.htwg.se.Shogi.aview.Tui
+import de.htwg.se.Shogi.controller.controllerComponent.controllerBaseImpl.{StartNewGame, UpdateAll}
 import de.htwg.se.Shogi.controller.controllerComponent.{ControllerInterface, MoveResult}
 import de.htwg.se.Shogi.model.pieceComponent.PieceInterface
 import javax.inject._
 import play.api.libs.json._
 import play.api.mvc._
+import play.api.libs.streams.ActorFlow
+
+import scala.swing.Reactor
+
 
 @Singleton
 class ShogiController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
@@ -186,6 +192,28 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
       Props(new ShogiWebSocketActor(out))
     }
   }
+
+  class ShogiWebSocketActor(out: ActorRef) extends Actor with Reactor {
+    listenTo(gameController)
+
+    def receive: PartialFunction[Any, Unit] = {
+      case msg: String =>
+        out ! boardToJson().toString
+        println("Sent Json to Client" + msg)
+    }
+
+    reactions += {
+      case _: UpdateAll => sendJsonToClient()
+      case _: StartNewGame => sendJsonToClient()
+    }
+
+
+    def sendJsonToClient(): Unit = {
+      println("Received event from Controller")
+      out ! boardToJson().toString
+    }
+  }
+
 }
 
 
