@@ -70,7 +70,7 @@ Now you should be able to access the classes of your game from your play Control
 
 (Folgende Dateien sind nicht mit in die Code-Coverage eingeflossen: Shogi.scala, PieceInterface.scala, /aview/)
 
-# Sho - Shogi
+# Sho - Shogi [Homepage](https://cybec.github.io/de.htwg.wt.ShogiPlay/)
 
 
 Name         | Github Benutzer
