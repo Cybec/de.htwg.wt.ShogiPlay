@@ -84,6 +84,12 @@ $(document).on("click", "#closeModal", function () {
     document.getElementById('AboutModal').style.display = "none";
 });
 
+// When the user clicks anywhere outside of the modal, close it
+$(document).click(function (event) {
+    if (event.target.id === "AboutModal") {
+        document.getElementById('AboutModal').style.display = "none";
+    }
+});
 
 function newGame() {
     kingSlainEnd = false;
