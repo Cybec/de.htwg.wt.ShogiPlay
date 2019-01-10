@@ -1,9 +1,26 @@
 var lastPM = "";
 var last_clicked_id = "";
 var kingSlainEnd = false;
+
+//Helper Simulation
+var helper = 0;
+var helper2 = 0;
 var simuList;
 var simuList_All = [];
 var simuCount = 1;
+
+// $.ajax(
+//     {
+//         type: 'GET',
+//         url: "boardToJson",
+//         dataType: 'Json',
+//
+//         success: function (board) {
+//             createNewConqueredContainer(board.playerFirstConquered, board.playerSecondConquered);
+//             fillBoard(board.board)
+//         }
+//     }
+// );
 
 $.ajax(
     {
@@ -22,6 +39,8 @@ $.ajax(
 
 
 $(document).on("click", ".btn", function () {
+    console.log(document.getElementById('closeModal'));
+
     if (!kingSlainEnd) {
         clickOnBoard($(this).attr('id'));
     }
@@ -59,6 +78,10 @@ $(document).on("click", ".dropdown-item", function () {
             redoGame();
             break;
     }
+});
+
+$(document).on("click", "#closeModal", function () {
+    document.getElementById('AboutModal').style.display = "none";
 });
 
 
@@ -155,31 +178,33 @@ function loadGame() {
 }
 
 function aboutGame() {
-    $.ajax(
-        {
-            type: 'GET',
-            url: "about",
-            dataType: 'html',
-
-            success: function (result) {
-                $('#gamefield').html(result)
-            }
-        }
-    )
+    document.getElementById('AboutModal').style.display = "block";
 }
 
 function updateBoard() {
+    // $.ajax(
+    //     {
+    //         type: 'GET',
+    //         url: "boardGamefieldHTML",
+    //         dataType: 'html',
+    //
+    //         success: function (result) {
+    //             $('#gamefield').html(result)
+    //         }
+    //     }
+    // )
     $.ajax(
         {
             type: 'GET',
-            url: "boardGamefieldHTML",
-            dataType: 'html',
+            url: "boardToJson",
+            dataType: 'Json',
 
-            success: function (result) {
-                $('#gamefield').html(result)
+            success: function (board) {
+                createNewConqueredContainer(board.playerFirstConquered, board.playerSecondConquered);
+                fillBoard(board.board)
             }
         }
-    )
+    );
 }
 
 function ResetBlueFields() {
@@ -296,9 +321,6 @@ function resetGlobalVal() {
 }
 
 
-var helper = 0;
-var helper2 = 0;
-
 function Simulation() {
     $('#' + simuList[helper][helper2]).fadeIn(100).fadeIn(100)
         .fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
@@ -326,4 +348,58 @@ function Simulation() {
             simuCount += 1;
         }
     }
+}
+
+
+function fillBoard(boardArray) {
+    // console.log(boardArray);
+
+    for (var k in boardArray) {
+        var html = [];
+        var id = boardArray[k].col + '-' + boardArray[k].row;
+        html.push(
+            "<label id=\"Label_" + id + "\" style=\"display: none;\">" + boardArray[k].posMovs + "</label>"
+        );
+        if (boardArray[k].piece.pieceName.trim().length === 0) {
+            html.push("<img class=\"img_style\" style=\"opacity: 0;\">");
+        } else {
+            html.push("<img class=\"img_style\" src=\"" + boardArray[k].piece.img + "\">");
+        }
+        document.getElementById(id).innerHTML = html.join("");
+    }
+
+}
+
+function createNewConqueredContainer(playerFirstCon, playerSecondCon) {
+
+    var html = [];
+    if (playerFirstCon.length === 0) {
+        html.push("<img class=\"img_style\" style=\"opacity: 0;\">");
+    } else {
+        for (var k in playerFirstCon) {
+            html.push(
+                "<div id=\"" + playerFirstCon[k].pieceName.trim() + "\" class=\"conquered btn btn-primary\">",
+                "<label id=\"Label_" + playerFirstCon[k].pieceName.trim() + "\" style=\"display: none;\">" + playerFirstCon[k].posMovs + "</label>",
+                "<img class=\"img_style\" src=\"" + playerFirstCon[k].img + "\">",
+                "</div>"
+            );
+        }
+    }
+    document.getElementById("player1Container").innerHTML = html.join("");
+
+
+    var html2 = [];
+    if (playerFirstCon.length === 0) {
+        html2.push("<img class=\"img_style\" style=\"opacity: 0;\">");
+    } else {
+        for (var k in playerSecondCon) {
+            html2.push(
+                "<div id=\"" + playerSecondCon[k].pieceName.trim() + "\" class=\"conquered btn btn-primary\">",
+                "<label id=\"Label_" + playerSecondCon[k].pieceName.trim() + "\" style=\"display: none;\">" + playerSecondCon[k].posMovs + "</label>",
+                "<img class=\"img_style\" src=\"" + playerSecondCon[k].img + "\">",
+                "</div>"
+            );
+        }
+    }
+    document.getElementById("player2Container").innerHTML = html2.join("");
 }
