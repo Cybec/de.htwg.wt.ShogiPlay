@@ -363,7 +363,7 @@ function createNewConqueredContainer(playerFirstCon, playerSecondCon) {
 
 
     var html2 = [];
-    if (playerFirstCon.length === 0) {
+    if (playerSecondCon.length === 0) {
         html2.push("<img class=\"img_style\" style=\"opacity: 0;\">");
     } else {
         for (var k in playerSecondCon) {
