@@ -26,22 +26,22 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
 
   def emptyBoard: Action[AnyContent] = Action {
     gameController.createEmptyBoard()
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def newBoard(): Action[AnyContent] = Action {
     gameController.createNewBoard()
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def undo: Action[AnyContent] = Action {
     gameController.undoCommand
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def redo: Action[AnyContent] = Action {
     gameController.redoCommand
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def possibleMoves(x: Int, y: Int): Action[AnyContent] = Action {
@@ -60,7 +60,7 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
         if (gameController.promotable((i, j))) {
           Ok("<p>Promotable</p>")
         } else
-          boardOkHTML
+          Ok(JsonBoard())
       case MoveResult.kingSlain => Ok("<p>KingSlain</p>")
     }
   }
@@ -68,12 +68,12 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
   def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String): Action[AnyContent] = Action {
     if (promotion == "y")
       gameController.promotePiece(i, j)
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int): Action[AnyContent] = Action {
     if (gameController.moveConqueredPiece(pieceAbbrevation, (x, y))) {
-      boardOkHTML
+      Ok(JsonBoard())
     } else {
       Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
     }
@@ -90,12 +90,12 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
 
   def save(): Action[AnyContent] = Action {
     gameController.save
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def load(): Action[AnyContent] = Action {
     gameController.load
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def end(): Action[AnyContent] = Action {
@@ -130,10 +130,6 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
       "jsonArrayOfStrings3" -> jsonArrayOfStrings_3,
       "jsonArrayOfStrings4" -> jsonArrayOfStrings_4
     ))
-  }
-
-  def boardGamefieldHTML: Action[AnyContent] = Action {
-    Ok(views.html.shogiGamefield(gameController, gameController.boardSize))
   }
 
   def boardToJson(): Action[AnyContent] = Action {

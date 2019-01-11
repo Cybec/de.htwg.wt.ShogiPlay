@@ -1,119 +1,11 @@
 {
   "board" : {
     "size" : 9,
-    "state" : false,
+    "state" : true,
     "playerFirstName" : "Player1",
     "playerSecondName" : "Player2",
-    "playerFirstConquered" : [ {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Rook",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Lancer",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Knight",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "SilverGeneral",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "GoldenGeneral",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "GoldenGeneral",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "SilverGeneral",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Knight",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Lancer",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Bishop",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : true
-    } ],
-    "playerSecondConquered" : [ {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Rook",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Lancer",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Knight",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "SilverGeneral",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "GoldenGeneral",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "GoldenGeneral",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "SilverGeneral",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Knight",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Lancer",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Bishop",
-      "firstPlayer" : false
-    }, {
-      "pieceName" : "Pawn",
-      "firstPlayer" : false
-    } ],
+    "playerFirstConquered" : [ ],
+    "playerSecondConquered" : [ ],
     "cell" : [ {
       "row" : 0,
       "col" : 0,
@@ -370,8 +262,8 @@
       "row" : 0,
       "col" : 4,
       "piece" : {
-        "pieceName" : "King",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 1,
@@ -384,7 +276,7 @@
       "row" : 2,
       "col" : 4,
       "piece" : {
-        "pieceName" : "PromotedPawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -412,8 +304,8 @@
       "row" : 6,
       "col" : 4,
       "piece" : {
-        "pieceName" : "PromotedPawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 7,
@@ -426,7 +318,7 @@
       "row" : 8,
       "col" : 4,
       "piece" : {
-        "pieceName" : "King",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
