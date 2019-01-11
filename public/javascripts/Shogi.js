@@ -26,8 +26,6 @@ $(document).ready(function () {
             }
         }
     );
-
-    connectWebSocket()
 });
 
 $(document).on("click", ".btn", function () {
@@ -37,7 +35,7 @@ $(document).on("click", ".btn", function () {
 });
 
 $(document).on("click", "#logo", function () {
-    //updateBoard()
+    updateBoard()
 });
 
 $(document).on("click", "#Simulation", function () {
@@ -97,7 +95,7 @@ function newGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -111,7 +109,7 @@ function emptyGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -125,7 +123,7 @@ function undoGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -139,7 +137,7 @@ function redoGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -153,7 +151,7 @@ function saveGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -167,7 +165,7 @@ function loadGame() {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -229,7 +227,7 @@ function Promotable(currentLink) {
             dataType: 'html',
 
             success: function () {
-                //updateBoard()
+                updateBoard()
             }
         }
     )
@@ -265,6 +263,7 @@ function clickOnBoard(clicked_id) {
                         } else if (result === "<p>KingSlain</p>") {
                             KingSlain();
                         }
+                        updateBoard();
                         resetGlobalVal();
                     }
                 }
@@ -280,6 +279,7 @@ function clickOnBoard(clicked_id) {
                     dataType: 'html',
 
                     success: function () {
+                        updateBoard();
                         resetGlobalVal();
                     }
                 }
@@ -376,31 +376,4 @@ function createNewConqueredContainer(playerFirstCon, playerSecondCon) {
         }
     }
     document.getElementById("player2Container").innerHTML = html2.join("");
-}
-
-function connectWebSocket() {
-    var websocket = new WebSocket("ws://localhost:9000/websocket");
-    websocket.setTimeout
-
-    websocket.onopen = function (event) {
-        console.log("Connected to Websocket");
-    };
-
-    websocket.onclose = function () {
-        console.log('Connection with Websocket Closed!');
-    };
-
-    websocket.onerror = function (error) {
-        console.log('Error in Websocket Occured: ' + error);
-    };
-
-    websocket.onmessage = function (e) {
-        console.log("MSG_ receive");
-        if (typeof e.data === "string") {
-            var json = JSON.parse(e.data);
-            createNewConqueredContainer(json.playerFirstConquered, json.playerSecondConquered);
-            fillBoard(json.board)
-        }
-
-    };
 }

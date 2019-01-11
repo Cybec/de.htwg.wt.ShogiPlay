@@ -1,18 +1,14 @@
 package controllers
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.actor.ActorSystem
 import akka.stream.Materializer
 import de.htwg.se.Shogi.Shogi
 import de.htwg.se.Shogi.aview.Tui
-import de.htwg.se.Shogi.controller.controllerComponent.controllerBaseImpl.{StartNewGame, UpdateAll}
 import de.htwg.se.Shogi.controller.controllerComponent.{ControllerInterface, MoveResult}
 import de.htwg.se.Shogi.model.pieceComponent.PieceInterface
 import javax.inject._
 import play.api.libs.json._
-import play.api.libs.streams.ActorFlow
 import play.api.mvc._
-
-import scala.swing.Reactor
 
 
 @Singleton
@@ -177,40 +173,6 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
           )
         }))
   }
-
-  def socket: WebSocket = WebSocket.accept[String, String] { _ =>
-    ActorFlow.actorRef { out =>
-      println("Connect received")
-      ShogiWebSocketActorFactory.create(out)
-    }
-  }
-
-  object ShogiWebSocketActorFactory {
-    def create(out: ActorRef): Props = {
-      Props(new ShogiWebSocketActor(out))
-    }
-  }
-
-  class ShogiWebSocketActor(out: ActorRef) extends Actor with Reactor {
-    listenTo(gameController)
-
-    def receive: Receive = {
-      case msg: String =>
-        out ! JsonBoard().toString
-        println("Sent Json to Client" + msg)
-    }
-
-    reactions += {
-      case _: UpdateAll => sendJsonToClient()
-      case _: StartNewGame => sendJsonToClient()
-    }
-
-    def sendJsonToClient(): Unit = {
-      println("Received event from Controller")
-      out ! JsonBoard().toString
-    }
-  }
-
 }
 
 
