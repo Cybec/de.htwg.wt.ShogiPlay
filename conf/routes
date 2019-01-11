@@ -22,6 +22,7 @@ GET        /about                               controllers.ShogiController.abou
 GET        /boardGamefieldHTML                  controllers.ShogiController.boardGamefieldHTML
 GET        /SimuToJson                          controllers.ShogiController.SimuToJson
 GET        /boardToJson                         controllers.ShogiController.boardToJson
+GET        /websocket                           controllers.ShogiController.socket
 
 
 # Map static resources from the /public folder to the /assets URL path
