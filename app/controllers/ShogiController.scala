@@ -1,5 +1,7 @@
 package controllers
 
+import akka.actor.ActorSystem
+import akka.stream.Materializer
 import de.htwg.se.Shogi.Shogi
 import de.htwg.se.Shogi.aview.Tui
 import de.htwg.se.Shogi.controller.controllerComponent.{ControllerInterface, MoveResult}
@@ -10,7 +12,7 @@ import play.api.mvc._
 
 
 @Singleton
-class ShogiController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class ShogiController @Inject()(cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
   val gameController: ControllerInterface = Shogi.controller
   val tui = new Tui(gameController)
 
@@ -24,22 +26,22 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   def emptyBoard: Action[AnyContent] = Action {
     gameController.createEmptyBoard()
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def newBoard(): Action[AnyContent] = Action {
     gameController.createNewBoard()
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def undo: Action[AnyContent] = Action {
     gameController.undoCommand
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def redo: Action[AnyContent] = Action {
     gameController.redoCommand
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def possibleMoves(x: Int, y: Int): Action[AnyContent] = Action {
@@ -58,26 +60,24 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
         if (gameController.promotable((i, j))) {
           Ok("<p>Promotable</p>")
         } else
-          boardOkHTML
+          Ok(JsonBoard())
       case MoveResult.kingSlain => Ok("<p>KingSlain</p>")
     }
   }
 
-
   def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String): Action[AnyContent] = Action {
     if (promotion == "y")
       gameController.promotePiece(i, j)
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int): Action[AnyContent] = Action {
     if (gameController.moveConqueredPiece(pieceAbbrevation, (x, y))) {
-      boardOkHTML
+      Ok(JsonBoard())
     } else {
       Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
     }
   }
-
 
   def possibleMovesConqueredPiece(pieceAbbrevation: String): Action[AnyContent] = Action {
     val list = gameController.getPossibleMovesConqueredPiece(pieceAbbrevation)
@@ -90,12 +90,12 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   def save(): Action[AnyContent] = Action {
     gameController.save
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def load(): Action[AnyContent] = Action {
     gameController.load
-    boardOkHTML
+    Ok(JsonBoard())
   }
 
   def end(): Action[AnyContent] = Action {
@@ -132,11 +132,11 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
     ))
   }
 
-  def boardGamefieldHTML: Action[AnyContent] = Action {
-    Ok(views.html.shogiGamefield(gameController, gameController.boardSize))
+  def boardToJson(): Action[AnyContent] = Action {
+    Ok(JsonBoard())
   }
 
-  def boardToJson(): Action[AnyContent] = Action {
+  def JsonBoard(): JsObject = {
     implicit val cellWrites: Writes[PieceInterface] = (piece: PieceInterface) => {
       val player = if (piece.isFirstOwner) "1" else "2"
       val img = "/assets/images/player" + player + "/1000x1000/" + piece.toStringLong + ".png"
@@ -152,9 +152,9 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
 
     val board = gameController.getBoardClone
 
-    Ok(Json.obj(
-      "playerFirstConquered" -> Json.toJson(board.getContainer._1.distinct),
-      "playerSecondConquered" -> Json.toJson(board.getContainer._2.distinct),
+    Json.obj(
+      "playerFirstConquered" -> Json.toJson(board.getContainer._1),
+      "playerSecondConquered" -> Json.toJson(board.getContainer._2),
       "board" -> Json.toJson(
         for {
           col <- 0 until board.size
@@ -168,7 +168,6 @@ class ShogiController @Inject()(cc: ControllerComponents) extends AbstractContro
             "piece" -> Json.toJson(board.cell(col, row))
           )
         }))
-    )
   }
 }
 

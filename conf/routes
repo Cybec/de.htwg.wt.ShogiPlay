@@ -19,7 +19,6 @@ GET        /end                                 controllers.ShogiController.end
 GET        /about                               controllers.ShogiController.about
 
 
-GET        /boardGamefieldHTML                  controllers.ShogiController.boardGamefieldHTML
 GET        /SimuToJson                          controllers.ShogiController.SimuToJson
 GET        /boardToJson                         controllers.ShogiController.boardToJson
 
