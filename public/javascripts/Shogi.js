@@ -9,38 +9,26 @@ var simuList;
 var simuList_All = [];
 var simuCount = 1;
 
-// $.ajax(
-//     {
-//         type: 'GET',
-//         url: "boardToJson",
-//         dataType: 'Json',
-//
-//         success: function (board) {
-//             createNewConqueredContainer(board.playerFirstConquered, board.playerSecondConquered);
-//             fillBoard(board.board)
-//         }
-//     }
-// );
+$(document).ready(function () {
+    console.log("Document is ready");
+    //get simulation list
+    $.ajax(
+        {
+            type: 'GET',
+            url: "SimuToJson",
+            dataType: 'Json',
 
-$.ajax(
-    {
-        type: 'GET',
-        url: "SimuToJson",
-        dataType: 'Json',
-
-        success: function (simu) {
-            for (var k in simu) {
-                simuList_All.push(simu[k])
+            success: function (simu) {
+                for (var k in simu) {
+                    simuList_All.push(simu[k])
+                }
+                simuList = simuList_All[0];
             }
-            simuList = simuList_All[0];
         }
-    }
-);
-
+    );
+});
 
 $(document).on("click", ".btn", function () {
-    console.log(document.getElementById('closeModal'));
-
     if (!kingSlainEnd) {
         clickOnBoard($(this).attr('id'));
     }
@@ -188,17 +176,6 @@ function aboutGame() {
 }
 
 function updateBoard() {
-    // $.ajax(
-    //     {
-    //         type: 'GET',
-    //         url: "boardGamefieldHTML",
-    //         dataType: 'html',
-    //
-    //         success: function (result) {
-    //             $('#gamefield').html(result)
-    //         }
-    //     }
-    // )
     $.ajax(
         {
             type: 'GET',
@@ -265,7 +242,6 @@ function KingSlain() {
 }
 
 function clickOnBoard(clicked_id) {
-    console.log(clicked_id);
     if (lastPM.includes(clicked_id.replace("-", ","))) {
         if ('0123456789'.indexOf(last_clicked_id.charAt(0)) !== -1) {
             var destLink = "mv/" +
@@ -287,8 +263,6 @@ function clickOnBoard(clicked_id) {
                         } else if (result === "<p>KingSlain</p>") {
                             KingSlain();
                         }
-
-
                         updateBoard();
                         resetGlobalVal();
                     }
@@ -326,7 +300,6 @@ function resetGlobalVal() {
     last_clicked_id = "";
 }
 
-
 function Simulation() {
     $('#' + simuList[helper][helper2]).fadeIn(100).fadeIn(100)
         .fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
@@ -356,10 +329,7 @@ function Simulation() {
     }
 }
 
-
 function fillBoard(boardArray) {
-    // console.log(boardArray);
-
     for (var k in boardArray) {
         var html = [];
         var id = boardArray[k].col + '-' + boardArray[k].row;
@@ -373,11 +343,9 @@ function fillBoard(boardArray) {
         }
         document.getElementById(id).innerHTML = html.join("");
     }
-
 }
 
 function createNewConqueredContainer(playerFirstCon, playerSecondCon) {
-
     var html = [];
     if (playerFirstCon.length === 0) {
         html.push("<img class=\"img_style\" style=\"opacity: 0;\">");
