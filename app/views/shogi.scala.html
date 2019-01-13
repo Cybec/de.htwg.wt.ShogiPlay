@@ -1,94 +1,77 @@
 @(controller: de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface, size: Int)
 
-    @getPlayerIcon(col: Int, row: Int) = @{
-        val player = if(getPlayerOfPiece(col, row)) "1" else "2"
-        "images/player" + player + "/1000x1000/" + cellPieceFullName(col, row) + ".png"
-    }
+@getPlayerIcon(col: Int, row: Int) = @{
+    val player = if(getPlayerOfPiece(col, row)) "1" else "2"
+    "images/player" + player + "/1000x1000/" + cellPieceFullName(col, row) + ".png"
+}
 
-    @boardArray = @{
-        controller.boardToArray()
-    }
+@boardArray = @{
+    controller.boardToArray()
+}
 
-    @cell(col: Int, row: Int) = @{
-        boardArray(col)(row).toString
-    }
+@cell(col: Int, row: Int) = @{
+    boardArray(col)(row).toString
+}
 
-    @cellPieceFullName(col: Int, row: Int) = @{
-        boardArray(col)(row).toStringLong
-    }
+@cellPieceFullName(col: Int, row: Int) = @{
+    boardArray(col)(row).toStringLong
+}
 
-    @getPlayerOfPiece(col: Int, row: Int) = @{
-        boardArray(col)(row).isFirstOwner
-    }
+@getPlayerOfPiece(col: Int, row: Int) = @{
+    boardArray(col)(row).isFirstOwner
+}
 
-    @playerContainer_1() = @{
-        controller.getContainer._1.mkString(", ")
-    }
+@playerContainer_1() = @{
+    controller.getContainer._1.mkString(", ")
+}
 
-    @playerContainer_2() = @{
-        controller.getContainer._2.mkString(", ")
-    }
+@playerContainer_2() = @{
+    controller.getContainer._2.mkString(", ")
+}
 
-    @getPosMoves(col: Int, row: Int) = @{
-        controller.getPossibleMoves((col, row)).mkString("-")
-    }
+@getPosMoves(col: Int, row: Int) = @{
+    controller.getPossibleMoves((col, row)).mkString("-")
+}
 
-    @getPosMovesConquered(piece: String) = @{
-        controller.getPossibleMovesConqueredPiece(piece).mkString("-")
-    }
+@getPosMovesConquered(piece: String) = @{
+    controller.getPossibleMovesConqueredPiece(piece).mkString("-")
+}
 
 
-    @main("Shogi Gamefield") {
-        <div id="gamefield" class="gamefield">
-            <div id="player1Container" class="playerContainer">
-                @for(piece <- controller.getContainer._1) {
-                    @if(piece.toStringLong.trim.nonEmpty) {
-                        <div id="@piece.toString.trim" class="conquered btn btn-primary">
-                            <label id="Label_@piece.toString.trim" style="display: none;">@getPosMovesConquered(piece.toString.trim)</label>
-                            <img class="img_style" src="@routes.Assets.versioned("images/player1/1000x1000/" + piece.toStringLong + ".png")" />
-                        </div>
-                    }
-                }
-                @if(controller.getContainer._1.isEmpty) {
-                    <img class="img_style" style="opacity: 0;" />
-                }
+@main("Shogi Gamefield") {
+    <div id="PlayingField" class="gamefield">
+        @*-------------------------------------------------------------------------------------------------*@
+        <div id="player1Container" class="playerContainer" >
+            <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerFirstCon" :key="piece.id">
+                <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMovs }}</label>
+                <img class="img_style" v-bind="{src: piece.img}" alt=""/>
             </div>
-
-
+            <img v-if="playerFirstCon.length === 0" class="img_style" style="opacity: 0;" />
+        </div>
+        @*-------------------------------------------------------------------------------------------------*@
+        <div>
             <div class="table buttonbarcontainer">
-            @for(row <- 0 until size) {
-                <div class="rowGroup btn-group">
-                @for(col <- 0 until size) {
-                    <div id="@col-@row" class="cell btn btn-primary" col=@col row=@row>
-                        <label id="Label_@col-@row" style="display: none;">@getPosMoves(col, row)</label>
-                        @* @cell(col, row)&nbsp;*@
-                        @if(cell(col, row).trim.nonEmpty) {
-                            <img class="img_style" src="@routes.Assets.versioned(getPlayerIcon(col, row))"/>
-                        } else {
-                            <img class="img_style" style="opacity: 0;" />
-                        }
+                <div class="rowGroup btn-group" v-for="(i, row) in size">
+                    <div v-on:click="pieceClicked($event)" v-bind="{id: col +'-' + row}" class="cell btn btn-primary" v-for="(i, col) in size">
+                        <label v-bind="{id: 'Label_'+col +'-' + row }"
+                        style="display: none;" >{{ posMoves[(col * 9) + row] }}</label>
+                        <img v-if="img[(col * 9) + row] !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: img[(col * 9) + row] }" alt=""/>
+                        <img v-else class="img_style" style="opacity: 0;" />
                     </div>
-                }
                 </div>
-            }
-            </div>
-            <div id="player2Container" class="playerContainer">
-                @for(piece <- controller.getContainer._2) {
-                    @if(piece.toStringLong.trim.nonEmpty) {
-                        <div id="@piece.toString.trim" class="conquered btn btn-primary">
-                            <label id="Label_@piece.toString.trim" style="display: none;">@getPosMovesConquered(piece.toString.trim)</label>
-                            <img class="img_style" src="@routes.Assets.versioned("images/player2/1000x1000/" + piece.toStringLong + ".png")" />
-                        </div>
-                    }
-                }
-                @if(controller.getContainer._2.isEmpty) {
-                    <img class="img_style" style="opacity: 0;" />
-                }
             </div>
         </div>
-
-        @aboutTheGame()
-    }
+        @*-------------------------------------------------------------------------------------------------*@
+        <div id="player2Container" class="playerContainer" >
+            <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerSecondCon" :key="piece.id">
+                <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMovs }}</label>
+                <img v-if="piece.img !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: piece.img}" alt=""/>
+                <img v-else class="img_style" style="opacity: 0;" />
+            </div>
+            <img v-if="playerSecondCon.length === 0" class="img_style" style="opacity: 0;" />
+        </div>
+    </div>
+}
 
 
 
