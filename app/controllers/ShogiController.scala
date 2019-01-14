@@ -26,22 +26,22 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
 
   def emptyBoard: Action[AnyContent] = Action {
     gameController.createEmptyBoard()
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def newBoard(): Action[AnyContent] = Action {
     gameController.createNewBoard()
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def undo: Action[AnyContent] = Action {
     gameController.undoCommand
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def redo: Action[AnyContent] = Action {
     gameController.redoCommand
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def possibleMoves(x: Int, y: Int): Action[AnyContent] = Action {
@@ -90,12 +90,12 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
 
   def save(): Action[AnyContent] = Action {
     gameController.save
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def load(): Action[AnyContent] = Action {
     gameController.load
-    Ok(JsonBoard())
+    boardOkHTML
   }
 
   def end(): Action[AnyContent] = Action {

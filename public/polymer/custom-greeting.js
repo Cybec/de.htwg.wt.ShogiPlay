@@ -67,9 +67,12 @@ render() {
           <div class="dropdown">
             <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
-              <a class="dropdown-item" href="/new">New</a>
-              <a class="dropdown-item" href="/about">About</a>
-              <a class="dropdown-item" href="/empty">Shogi</a>
+              <a class="dropdown-item" href="/new" onClick="">New</a>
+              <a class="dropdown-item" href="/empty">Empty</a>
+              <a class="dropdown-item" href="/undo" >Undo</a>
+              <a class="dropdown-item" href="/redo" >Redo</a>
+              <a class="dropdown-item" href="/save" >Save</a>
+              <a class="dropdown-item" href="/load" >Load</a>
             </div>
           </div>
          `;
