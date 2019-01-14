@@ -18,7 +18,7 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
 
   def shogiAsText: String = gameController.boardToString()
 
-  def boardOkHTML: Result = Ok(views.html.shogi(gameController, gameController.boardSize))
+  def boardOkHTML: Result = Ok(views.html.shogi())
 
   def shogi: Action[AnyContent] = Action {
     boardOkHTML

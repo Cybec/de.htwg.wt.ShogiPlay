@@ -140,15 +140,14 @@ function update() {
             for (i = 0; i < json.playerFirstConquered.length; i++) {
                 Vue.set(PlayField.playerFirstCon, i, {
                     img: json.playerFirstConquered[i].img,
-                    name: json.playerFirstConquered[i].pieceName,
+                    name: json.playerFirstConquered[i].pieceName.trim(),
                     posMoves: json.playerFirstConquered[i].posMovs
                 });
             }
             for (i = 0; i < json.playerSecondConquered.length; i++) {
-                console.log(json.playerSecondConquered[i].img);
                 Vue.set(PlayField.playerSecondCon, i, {
                     img: json.playerSecondConquered[i].img,
-                    name: json.playerSecondConquered[i].pieceName,
+                    name: json.playerSecondConquered[i].pieceName.trim(),
                     posMoves: json.playerSecondConquered[i].posMovs
                 });
             }

@@ -1,7 +1,7 @@
 {
   "board" : {
     "size" : 9,
-    "state" : true,
+    "state" : false,
     "playerFirstName" : "Player1",
     "playerSecondName" : "Player2",
     "playerFirstConquered" : [ {
@@ -10,6 +10,12 @@
     } ],
     "playerSecondConquered" : [ {
       "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "GoldenGeneral",
       "firstPlayer" : false
     } ],
     "cell" : [ {
@@ -156,8 +162,8 @@
       "row" : 2,
       "col" : 2,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 3,
@@ -177,8 +183,8 @@
       "row" : 5,
       "col" : 2,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 6,
@@ -205,8 +211,8 @@
       "row" : 0,
       "col" : 3,
       "piece" : {
-        "pieceName" : "GoldenGeneral",
-        "firstPlayer" : true
+        "pieceName" : "PromotedPawn",
+        "firstPlayer" : false
       }
     }, {
       "row" : 1,
@@ -226,21 +232,21 @@
       "row" : 3,
       "col" : 3,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 4,
       "col" : 3,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
       "row" : 5,
       "col" : 3,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -282,7 +288,7 @@
       "row" : 2,
       "col" : 4,
       "piece" : {
-        "pieceName" : "PromotedPawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
