@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFBD54;
+<nav id="Navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: #FFBD54;
     font-size: x-large">
     <a class="navbar-brand" href="#">
-        <div id="logo">
+        <div id="logo" v-on:click="logo">
             <img src="@routes.Assets.versioned("images/logo/c.png")" class="d-inline-block align-top img_style_logo" alt="">
             <a style="vertical-align: center;
                 padding-right: 2em;
@@ -19,13 +19,13 @@
                         Game
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">New</a>
-                    <a class="dropdown-item" href="#">Empty</a>
+                    <a class="dropdown-item" href="#" v-on:click="newGame">New</a>
+                    <a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Save</a>
-                    <a class="dropdown-item" href="#">Load</a>
+                    <a class="dropdown-item" href="#" v-on:click="saveGame">Save</a>
+                    <a class="dropdown-item" href="#" v-on:click="loadGame">Load</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="#" v-on:click="aboutGame">About</a>
                 </div>
             </li>
 
@@ -34,13 +34,13 @@
                         Edit
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Undo</a>
-                    <a class="dropdown-item" href="#">Redo</a>
+                    <a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>
+                    <a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>
                 </div>
             </li>
 
             <li id="Simulation" class="nav-item">
-                <a class="nav-link" href="#">Simulation</a>
+                <a class="nav-link" href="#" v-on:click="simulation">Simulation</a>
             </li>
         </ul>
     </div>

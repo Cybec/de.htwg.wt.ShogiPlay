@@ -1,17 +1,29 @@
 {
   "board" : {
     "size" : 9,
-    "state" : true,
+    "state" : false,
     "playerFirstName" : "Player1",
     "playerSecondName" : "Player2",
-    "playerFirstConquered" : [ ],
-    "playerSecondConquered" : [ ],
+    "playerFirstConquered" : [ {
+      "pieceName" : "Pawn",
+      "firstPlayer" : true
+    } ],
+    "playerSecondConquered" : [ {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "GoldenGeneral",
+      "firstPlayer" : false
+    } ],
     "cell" : [ {
       "row" : 0,
       "col" : 0,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Lancer",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -24,8 +36,8 @@
       "row" : 2,
       "col" : 0,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 3,
@@ -52,7 +64,7 @@
       "row" : 6,
       "col" : 0,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -66,29 +78,29 @@
       "row" : 8,
       "col" : 0,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Lancer",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Knight",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Rook",
+        "firstPlayer" : true
       }
     }, {
       "row" : 2,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 3,
@@ -115,29 +127,29 @@
       "row" : 6,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
       "row" : 7,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Bishop",
         "firstPlayer" : false
       }
     }, {
       "row" : 8,
       "col" : 1,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Knight",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 2,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "SilverGeneral",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -171,35 +183,35 @@
       "row" : 5,
       "col" : 2,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 6,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "Pawn",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 7,
       "col" : 2,
       "piece" : {
         "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
-      "row" : 7,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
       "row" : 8,
       "col" : 2,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "SilverGeneral",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 3,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "PromotedPawn",
         "firstPlayer" : false
       }
     }, {
@@ -227,7 +239,7 @@
       "row" : 4,
       "col" : 3,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -255,15 +267,15 @@
       "row" : 8,
       "col" : 3,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "GoldenGeneral",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 4,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "King",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -318,15 +330,15 @@
       "row" : 8,
       "col" : 4,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "King",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 5,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "GoldenGeneral",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -360,8 +372,8 @@
       "row" : 5,
       "col" : 5,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 6,
@@ -381,15 +393,15 @@
       "row" : 8,
       "col" : 5,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "GoldenGeneral",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 6,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "SilverGeneral",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -402,8 +414,8 @@
       "row" : 2,
       "col" : 6,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 3,
@@ -430,7 +442,7 @@
       "row" : 6,
       "col" : 6,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -444,29 +456,29 @@
       "row" : 8,
       "col" : 6,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "SilverGeneral",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Knight",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Bishop",
+        "firstPlayer" : true
       }
     }, {
       "row" : 2,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 3,
@@ -493,29 +505,29 @@
       "row" : 6,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
       "row" : 7,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Rook",
         "firstPlayer" : false
       }
     }, {
       "row" : 8,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Knight",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 8,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Lancer",
+        "firstPlayer" : true
       }
     }, {
       "row" : 1,
@@ -528,8 +540,8 @@
       "row" : 2,
       "col" : 8,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 3,
@@ -556,7 +568,7 @@
       "row" : 6,
       "col" : 8,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -570,7 +582,7 @@
       "row" : 8,
       "col" : 8,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Lancer",
         "firstPlayer" : false
       }
     } ]
