@@ -2,27 +2,56 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Home page
+GET         /                                    controllers.ApplicationController.index
+GET         /signOut                             controllers.ApplicationController.signOut
+GET         /authenticate/:provider              controllers.SocialAuthController.authenticate(provider)
+
+GET         /signUp                              controllers.SignUpController.view
+POST        /signUp                              controllers.SignUpController.submit
+
+GET         /signIn                              controllers.SignInController.view
+POST        /signIn                              controllers.SignInController.submit
+
+GET         /password/forgot                     controllers.ForgotPasswordController.view
+POST        /password/forgot                     controllers.ForgotPasswordController.submit
+GET         /password/reset/:token               controllers.ResetPasswordController.view(token: java.util.UUID)
+POST        /password/reset/:token               controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET         /password/change                     controllers.ChangePasswordController.view
+POST        /password/change                     controllers.ChangePasswordController.submit
+
+GET         /account/email/:email                controllers.ActivateAccountController.send(email: String)
+GET         /account/activate/:token             controllers.ActivateAccountController.activate(token: java.util.UUID)
+
+
+
 # Controller for Shogi
-GET        /                                    controllers.ShogiController.shogi
-GET        /new                                 controllers.ShogiController.newBoard
-GET        /empty                               controllers.ShogiController.emptyBoard
-GET        /undo                                controllers.ShogiController.undo
-GET        /redo                                controllers.ShogiController.redo
-GET        /pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
-GET        /mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
-GET        /mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
-GET        /mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
-GET        /pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
-GET        /save                                controllers.ShogiController.save
-GET        /load                                controllers.ShogiController.load
-GET        /end                                 controllers.ShogiController.end
-GET        /about                               controllers.ShogiController.about
+GET         /shogi                               controllers.ShogiController.shogi
+GET         /new                                 controllers.ShogiController.newBoard
+GET         /empty                               controllers.ShogiController.emptyBoard
+GET         /undo                                controllers.ShogiController.undo
+GET         /redo                                controllers.ShogiController.redo
+GET         /pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
+GET         /mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
+GET         /mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
+GET         /mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
+GET         /pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
+GET         /save                                controllers.ShogiController.save
+GET         /load                                controllers.ShogiController.load
+GET         /end                                 controllers.ShogiController.end
+GET         /about                               controllers.ShogiController.about
 
 
-GET        /SimuToJson                          controllers.ShogiController.SimuToJson
-GET        /boardToJson                         controllers.ShogiController.boardToJson
+GET         /SimuToJson                          controllers.ShogiController.SimuToJson
+GET         /boardToJson                         controllers.ShogiController.boardToJson
 
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                        controllers.Assets.versioned(path="/public", file: Asset)
 
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+#GET         /assets/*file                        controllers.Assets.versioned(file)
+->          /webjars                             webjars.Routes

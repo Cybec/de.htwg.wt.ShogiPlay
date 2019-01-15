@@ -2,138 +2,141 @@ package controllers
 
 import akka.actor.ActorSystem
 import akka.stream.Materializer
+import com.mohiva.play.silhouette.api.Silhouette
+import com.mohiva.play.silhouette.api.actions.SecuredRequest
 import de.htwg.se.Shogi.Shogi
-import de.htwg.se.Shogi.aview.Tui
-import de.htwg.se.Shogi.controller.controllerComponent.{ControllerInterface, MoveResult}
+import de.htwg.se.Shogi.controller.controllerComponent.{ ControllerInterface, MoveResult }
 import de.htwg.se.Shogi.model.pieceComponent.PieceInterface
 import javax.inject._
+import org.webjars.play.WebJarsUtil
+import play.api.i18n.I18nSupport
 import play.api.libs.json._
 import play.api.mvc._
+import utils.auth.DefaultEnv
 
+import scala.concurrent.Future
 
 @Singleton
-class ShogiController @Inject()(cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
+class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil: WebJarsUtil, system: ActorSystem, assets: AssetsFinder, mat: Materializer, silhouette: Silhouette[DefaultEnv]) extends AbstractController(cc) with I18nSupport {
   val gameController: ControllerInterface = Shogi.controller
-  val tui = new Tui(gameController)
 
-  def shogiAsText: String = gameController.boardToString()
-
-  def boardOkHTML: Result = Ok(views.html.shogi())
-
-  def shogi: Action[AnyContent] = Action {
-    boardOkHTML
+  //  //  val tui = new Tui(gameController)
+  //
+  def shogi: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(views.html.shogi(request.identity)))
   }
 
-  def emptyBoard: Action[AnyContent] = Action {
+  def emptyBoard: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.createEmptyBoard()
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def newBoard(): Action[AnyContent] = Action {
+  def newBoard(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.createNewBoard()
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def undo: Action[AnyContent] = Action {
+  def undo: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.undoCommand
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def redo: Action[AnyContent] = Action {
+  def redo: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.redoCommand
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def possibleMoves(x: Int, y: Int): Action[AnyContent] = Action {
-    val list = gameController.getPossibleMoves(x, y)
+  def possibleMoves(x: Int, y: Int): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    val list = gameController.getPossibleMoves((x, y))
     if (list.isEmpty) {
-      Ok(gameController.boardToString() + "\n\n" + "There are no moves!")
+      Future.successful(Ok(gameController.boardToString() + "\n\n" + "There are no moves!"))
     } else {
-      Ok(gameController.boardToString() + "\n\n" + list.toString())
+      Future.successful(Ok(gameController.boardToString() + "\n\n" + list.toString()))
     }
   }
 
-  def movePiece(x: Int, y: Int, i: Int, j: Int): Action[AnyContent] = Action {
+  def movePiece(x: Int, y: Int, i: Int, j: Int): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.movePiece((x, y), (i, j)) match {
-      case MoveResult.invalidMove => Ok("<p>InvalidMove</p>")
+      case MoveResult.invalidMove => Future.successful(Ok("<p>InvalidMove</p>"))
       case MoveResult.validMove =>
         if (gameController.promotable((i, j))) {
-          Ok("<p>Promotable</p>")
+          Future.successful(Ok("<p>Promotable</p>"))
         } else
-          Ok(JsonBoard())
-      case MoveResult.kingSlain => Ok("<p>KingSlain</p>")
+          Future.successful(Ok(JsonBoard()))
+      case MoveResult.kingSlain => Future.successful(Ok("<p>KingSlain</p>"))
     }
   }
 
-  def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String): Action[AnyContent] = Action {
+  def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     if (promotion == "y")
-      gameController.promotePiece(i, j)
-    Ok(JsonBoard())
+      gameController.promotePiece((i, j))
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int): Action[AnyContent] = Action {
+  def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     if (gameController.moveConqueredPiece(pieceAbbrevation, (x, y))) {
-      Ok(JsonBoard())
+      Future.successful(Ok(JsonBoard()))
     } else {
-      Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>")
+      Future.successful(Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>"))
     }
   }
 
-  def possibleMovesConqueredPiece(pieceAbbrevation: String): Action[AnyContent] = Action {
+  def possibleMovesConqueredPiece(pieceAbbrevation: String): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     val list = gameController.getPossibleMovesConqueredPiece(pieceAbbrevation)
     if (list.isEmpty) {
-      Ok(gameController.boardToString() + "\n\n" + "</h1>There are no moves!</h1>")
+      Future.successful(Ok(gameController.boardToString() + "\n\n" + "</h1>There are no moves!</h1>"))
     } else {
-      Ok(gameController.boardToString() + "\n\n" + list.toString())
+      Future.successful(Ok(gameController.boardToString() + "\n\n" + list.toString()))
     }
   }
 
-  def save(): Action[AnyContent] = Action {
+  def save(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.save
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def load(): Action[AnyContent] = Action {
+  def load(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.load
-    Ok(JsonBoard())
+    Future.successful(Ok(JsonBoard()))
   }
 
-  def end(): Action[AnyContent] = Action {
-    Ok(views.html.shogiPlain(gameController, gameController.boardSize))
+  def end(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(views.html.shogi(request.identity)))
   }
 
-  def about: Action[AnyContent] = Action {
-    Ok(views.html.aboutTheGame())
+  def about: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(views.html.aboutTheGame()))
   }
 
-  def SimuToJson: Action[AnyContent] = Action {
-    val jsonArrayOfStrings_1: JsValue = Json.toJson(List("6-2", "6-3"), List("7-6", "7-5"),
-      List("1-2", "1-3"), List("7-5", "7-4"), List("1-3", "1-4"), List("3-8", "2-7"), List("7-1", "6-2"),
-      List("2-6", "2-5"), List("6-0", "7-1"), List("1-7", "6-2"), List("7-1", "6-2"), List("2-8", "1-7"),
-      List("5-0", "6-1"), List("1-7", "2-6"), List("2-0", "2-1"), List("6-8", "5-7"), List("2-1", "1-2"),
-      List("6-6", "6-5"), List("1-2", "1-3"), List("0-6", "0-5"), List("0-2", "0-3"), List("5-7", "6-6"))
-    val jsonArrayOfStrings_2: JsValue = Json.toJson(List("0-3", "0-4"), List("0-5", "0-4"),
-      List("1-3", "0-4"), List("0-8", "0-4"), List("0-0", "0-4"), List("P", "0-3"), List("P°", "0-1"),
-      List("2-6", "3-5"), List("1-4", "1-5"), List("B", "8-7"), List("1-1", "1-2"), List("1-6", "1-5"),
-      List("1-2", "1-5"), List("SG", "1-6"), List("1-5", "1-3"), List("3-5", "2-4"), List("1-3", "4-3"),
-      List("4-8", "3-7"), List("3-0", "2-0"), List("P", "1-1"), List("4-0", "3-1"), List("2-4", "1-5"))
-    val jsonArrayOfStrings_3: JsValue = Json.toJson(List("4-3", "0-3"), List("1-8", "2-6"),
-      List("1-0", "0-2"), List("6-6", "5-5"), List("L°", "1-2"), List("1-5", "0-4"), List("0-3", "0-4"),
-      List("L", "0-5"), List("P°", "1-5"), List("0-5", "0-4"), List("1-5", "1-6"), List("0-4", "0-2"),
-      List("0-1", "0-2"), List("R", "0-1"), List("1-6", "2-7"), List("3-7", "2-7"), List("SG°", "4-7"),
-      List("2-7", "3-7"), List("4-7", "5-8"), List("1-1", "1-0"), List("P°", "1-1"), List("1-0", "2-0"))
-    val jsonArrayOfStrings_4: JsValue = Json.toJson(List("GG°", "2-7"), List("3-7", "4-8"),
-      List("GG°", "4-7"), List("7-7", "4-7"), List("5-8", "4-8"))
-    Ok(Json.obj(
-      "jsonArrayOfStrings1" -> jsonArrayOfStrings_1,
-      "jsonArrayOfStrings2" -> jsonArrayOfStrings_2,
-      "jsonArrayOfStrings3" -> jsonArrayOfStrings_3,
-      "jsonArrayOfStrings4" -> jsonArrayOfStrings_4
-    ))
+  def SimuToJson: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    //    val jsonArrayOfStrings_1: JsValue = Json.toJson(List("6-2", "6-3"), List("7-6", "7-5"),
+    //      List("1-2", "1-3"), List("7-5", "7-4"), List("1-3", "1-4"), List("3-8", "2-7"), List("7-1", "6-2"),
+    //      List("2-6", "2-5"), List("6-0", "7-1"), List("1-7", "6-2"), List("7-1", "6-2"), List("2-8", "1-7"),
+    //      List("5-0", "6-1"), List("1-7", "2-6"), List("2-0", "2-1"), List("6-8", "5-7"), List("2-1", "1-2"),
+    //      List("6-6", "6-5"), List("1-2", "1-3"), List("0-6", "0-5"), List("0-2", "0-3"), List("5-7", "6-6"))
+    //    val jsonArrayOfStrings_2: JsValue = Json.toJson(List("0-3", "0-4"), List("0-5", "0-4"),
+    //      List("1-3", "0-4"), List("0-8", "0-4"), List("0-0", "0-4"), List("P", "0-3"), List("P°", "0-1"),
+    //      List("2-6", "3-5"), List("1-4", "1-5"), List("B", "8-7"), List("1-1", "1-2"), List("1-6", "1-5"),
+    //      List("1-2", "1-5"), List("SG", "1-6"), List("1-5", "1-3"), List("3-5", "2-4"), List("1-3", "4-3"),
+    //      List("4-8", "3-7"), List("3-0", "2-0"), List("P", "1-1"), List("4-0", "3-1"), List("2-4", "1-5"))
+    //    val jsonArrayOfStrings_3: JsValue = Json.toJson(List("4-3", "0-3"), List("1-8", "2-6"),
+    //      List("1-0", "0-2"), List("6-6", "5-5"), List("L°", "1-2"), List("1-5", "0-4"), List("0-3", "0-4"),
+    //      List("L", "0-5"), List("P°", "1-5"), List("0-5", "0-4"), List("1-5", "1-6"), List("0-4", "0-2"),
+    //      List("0-1", "0-2"), List("R", "0-1"), List("1-6", "2-7"), List("3-7", "2-7"), List("SG°", "4-7"),
+    //      List("2-7", "3-7"), List("4-7", "5-8"), List("1-1", "1-0"), List("P°", "1-1"), List("1-0", "2-0"))
+    //    val jsonArrayOfStrings_4: JsValue = Json.toJson(List("GG°", "2-7"), List("3-7", "4-8"),
+    //      List("GG°", "4-7"), List("7-7", "4-7"), List("5-8", "4-8"))
+    //    Future.successful(Ok(Json.obj(
+    //      "jsonArrayOfStrings1" -> jsonArrayOfStrings_1,
+    //      "jsonArrayOfStrings2" -> jsonArrayOfStrings_2,
+    //      "jsonArrayOfStrings3" -> jsonArrayOfStrings_3,
+    //      "jsonArrayOfStrings4" -> jsonArrayOfStrings_4
+    //    )))
+    Future.successful(Ok(""))
   }
 
-  def boardToJson(): Action[AnyContent] = Action {
-    Ok(JsonBoard())
+  def boardToJson(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(JsonBoard()))
   }
 
   def JsonBoard(): JsObject = {
@@ -149,7 +152,6 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
         "img" -> img)
     }
 
-
     val board = gameController.getBoardClone
 
     Json.obj(
@@ -159,7 +161,6 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
         for {
           col <- 0 until board.size
           row <- 0 until board.size
-          cell = board.cell(col, row)
         } yield {
           Json.obj(
             "row" -> row,
@@ -170,24 +171,4 @@ class ShogiController @Inject()(cc: ControllerComponents)(implicit system: Actor
         }))
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
