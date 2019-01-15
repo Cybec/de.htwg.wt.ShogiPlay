@@ -9,8 +9,37 @@ var simuList;
 var simuList_All = [];
 var simuCount = 1;
 
+function scalingIMG() {
+    var width = document.getElementById('PlayingField').getBoundingClientRect().width ;
+    var height = document.getElementById('PlayingField').getBoundingClientRect().height;
+
+    var els = document.getElementsByClassName("img_style");
+
+    var square = 0;
+    if (height < width) {
+        square = height / 14;
+    } else {
+        square = width / 14;
+    }
+
+    console.log(width);
+    console.log(height);
+    console.log(square);
+
+    [].forEach.call(els, function (el) {
+        el.style.width = square + "px";
+        el.style.height = square + "px";
+    });
+}
+
+document.getElementsByTagName("BODY")[0].onresize = function () {
+    scalingIMG();
+};
+
+
 //Load Simu on start
 $(document).ready(function () {
+    scalingIMG();
     console.log("Document is ready");
     //get simulation list
     $.ajax(

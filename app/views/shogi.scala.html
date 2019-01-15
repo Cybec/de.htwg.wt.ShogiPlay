@@ -11,49 +11,19 @@
     @*<link rel="styles" href="@assets.path("styles/bootstrap.min.css")">*@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
 
+    <link rel="stylesheet" href="@assets.path("styles/MyNavbar.css")">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="@assets.path("javascripts/vue.js")" ></script>
     <link rel="stylesheet" media="screen" href="@assets.path("styles/pieces.css")">
     <link rel="shortcut icon" type="image/png" href="@assets.path("images/favicon.png")">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <body>
+    <body style=" text-align: center;">
+
         @navbar(assets)
-        <div id="PlayingField" class="gamefield">
-            @*-------------------------------------------------------------------------------------------------*@
-            <div id="player1Container" class="playerContainer" >
-                <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerFirstCon" :key="piece.id">
-                    <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMoves }}</label>
-                    <img class="img_style" v-bind="{src: piece.img}" alt=""/>
-                </div>
-                <img v-if="playerFirstCon.length === 0" class="img_style" style="opacity: 0;" />
-            </div>
-            @*-------------------------------------------------------------------------------------------------*@
-            <div>
-                <div class="table buttonbarcontainer">
-                    <div class="rowGroup btn-group" v-for="(i, row) in size">
-                        <div v-on:click="pieceClicked($event)" v-bind="{id: col +'-' + row}" class="cell btn btn-primary" v-for="(i, col) in size">
-                            <label v-bind="{id: 'Label_'+col +'-' + row }"
-                            style="display: none;" >{{ posMoves[(col * 9) + row] }}</label>
-                            <img v-if="img[(col * 9) + row] !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: img[(col * 9) + row] }" alt=""/>
-                            <img v-else class="img_style" style="opacity: 0;" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @*-------------------------------------------------------------------------------------------------*@
-            <div id="player2Container" class="playerContainer" >
-                <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerSecondCon" :key="piece.id">
-                    <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMoves }}</label>
-                    <img v-if="piece.img !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: piece.img}" alt=""/>
-                    <img v-else class="img_style" style="opacity: 0;" />
-                </div>
-                <img v-if="playerSecondCon.length === 0" class="img_style" style="opacity: 0;" />
-            </div>
-        </div>
+        @PlayingField()
         @aboutTheGame()
         <script src="@assets.path("javascripts/ShogiVueJs.js")" ></script>
-        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>*@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
     </body>
 }

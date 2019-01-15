@@ -1,0 +1,32 @@
+<div id="PlayingField" class="gamefield" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    @*-------------------------------------------------------------------------------------------------*@
+    <div id="player1Container" class="playerContainer container-fluid text-center" >
+        <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerFirstCon" :key="piece.id">
+            <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMoves }}</label>
+            <img class="img_style" v-bind="{src: piece.img}" alt=""/>
+        </div>
+        <img v-if="playerFirstCon.length === 0" src="/assets/images/player2/1000x1000/Pawn.png" class="img_style" style="opacity: 0;" />
+    </div>
+    @*-------------------------------------------------------------------------------------------------*@
+    <div class="container-fluid text-center">
+        <div id="table" class="MyTable buttonbarcontainer">
+            <div class="rowGroup btn-group" v-for="(i, row) in size">
+                <div v-on:click="pieceClicked($event)" v-bind="{id: col +'-' + row}" class="cell btn btn-primary" v-for="(i, col) in size">
+                    <label v-bind="{id: 'Label_'+col +'-' + row }"
+                           style="display: none;" >{{ posMoves[(col * 9) + row] }}</label>
+                    <img v-if="img[(col * 9) + row] !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: img[(col * 9) + row] }" alt=""/>
+                    <img v-else class="img_style" src="/assets/images/player2/1000x1000/Pawn.png" style="opacity: 0;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    @*-------------------------------------------------------------------------------------------------*@
+    <div id="player2Container" class="playerContainer container-fluid text-center" >
+        <div v-on:click="pieceClicked($event)" v-bind="{id: piece.name}" class="conquered btn btn-primary" v-for="piece in playerSecondCon" :key="piece.id">
+            <label v-bind="{id: 'Label_' + piece.name }" style="display: none;">{{ piece.posMoves }}</label>
+            <img v-if="piece.img !== '/assets/images/player2/1000x1000/EmptyPiece.png'" class="img_style" v-bind="{src: piece.img}" alt=""/>
+            <img v-else class="img_style" style="opacity: 0;" />
+        </div>
+        <img v-if="playerSecondCon.length === 0" src="/assets/images/player2/1000x1000/Pawn.png" class="img_style" style="opacity: 0;" />
+    </div>
+</div>

@@ -2,27 +2,24 @@
 
 @(implicit assets: AssetsFinder)
 
-<nav id="Navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: #FFBD54;
-    font-size: x-large">
-    <a class="navbar-brand" href="#">
-        <div id="logo" v-on:click="logo">
-            <img src="@assets.path("images/logo/c.png")" class="d-inline-block align-top img_style_logo" alt="">
-            <a style="vertical-align: center;
-                padding-right: 2em;
-                font-weight: 500">Shogi</a>
+<nav id="Navbar" class="MyNavbar OwnNavbar MyNavbar-expand-lg MyNavbar-light">
+    <a class="MyNavbar-brand" href="#">
+        <div id="logo" class="logo" v-on:click="logo">
+            <span><img src="@assets.path("images/logo/c.png")" class="Myd-inline-block Myalign-top img_style_logo" alt=""></span>
+            <span style="padding-left: 10px;">Shogi</span>
         </div>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="MyNavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="MyNavbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <div class="collapse MyNavbar-collapse" id="navbarSupportedContent">
+        <ul class="MyNavbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Game
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
                     <a class="dropdown-item" href="#" v-on:click="newGame">New</a>
                     <a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>
                     <div class="dropdown-divider"></div>
@@ -37,7 +34,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Edit
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
                     <a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>
                     <a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>
                 </div>

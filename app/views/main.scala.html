@@ -16,6 +16,7 @@
         <title>@title</title>
         <link href="//fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
         <link href="//cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+        <script src="@assets.path("javascripts/vue.js")" ></script>
         @webJarsUtil.locate("bootstrap.min.css").css()
         @webJarsUtil.locate("bootstrap-theme.min.css").css()
         <link rel="stylesheet" href="@assets.path("styles/main.css")">
@@ -43,22 +44,22 @@
                         <li><a href="https://github.com/mohiva/play-silhouette-seed">GitHub</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        @user.map { u =>
-                            <li><a href="@controllers.routes.ApplicationController.index">@u.name</a></li>
-                            @if(u.loginInfo.providerID == com.mohiva.play.silhouette.impl.providers.CredentialsProvider.ID) {
-                                <li><a href="@controllers.routes.ChangePasswordController.view">@messages("change.password")</a></li>
-                            }
-                            <li><a href="@controllers.routes.ApplicationController.signOut">@messages("sign.out")</a></li>
-                        }.getOrElse {
-                            <li><a href="@controllers.routes.SignInController.view">@messages("sign.in")</a></li>
-                            <li><a href="@controllers.routes.SignUpController.view">@messages("sign.up")</a></li>
-                        }
+                    @user.map { u =>
+                    <li><a href="@controllers.routes.ApplicationController.index">@u.name</a></li>
+                    @if(u.loginInfo.providerID == com.mohiva.play.silhouette.impl.providers.CredentialsProvider.ID) {
+                        <li><a href="@controllers.routes.ChangePasswordController.view">@messages("change.password")</a></li>
+                    }
+                    <li><a href="@controllers.routes.ApplicationController.signOut">@messages("sign.out")</a></li>
+                    }.getOrElse {
+                        <li><a href="@controllers.routes.SignInController.view">@messages("sign.in")</a></li>
+                        <li><a href="@controllers.routes.SignUpController.view">@messages("sign.up")</a></li>
+                    }
                     </ul>
                 </nav>
             </div>
         </header>
-        <main class="container">
-            <div class="starter-template row">
+        <main class="container myNavbar">
+            <div class="starter-template row MyRow">
                 @request.flash.get("error").map { msg =>
                     <div class="col-md-6 col-md-offset-3 alert alert-danger">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -78,6 +79,7 @@
                     </div>
                 }
                 @content
+
             </div>
         </main>
         @webJarsUtil.locate("jquery.min.js").script()
