@@ -10,8 +10,10 @@ var simuList_All = [];
 var simuCount = 1;
 
 function scalingIMG() {
-    var width = document.getElementById('PlayingField').getBoundingClientRect().width ;
-    var height = document.getElementById('PlayingField').getBoundingClientRect().height;
+    var width = document.getElementById('player1Container').getBoundingClientRect().width;
+    // var height = document.getElementById('starter-template').getBoundingClientRect().height;
+    var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    height -= $('#Navbar').outerHeight(true);
 
     var els = document.getElementsByClassName("img_style");
 
@@ -181,6 +183,8 @@ function update() {
                 });
             }
         })
+
+    scalingIMG();
 }
 
 function clickOnBoard(clicked_id) {

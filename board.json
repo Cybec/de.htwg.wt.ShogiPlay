@@ -7,6 +7,45 @@
     "playerFirstConquered" : [ {
       "pieceName" : "Pawn",
       "firstPlayer" : true
+    }, {
+      "pieceName" : "Rook",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Knight",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "SilverGeneral",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "GoldenGeneral",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "GoldenGeneral",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "SilverGeneral",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Knight",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Lancer",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Bishop",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : true
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : true
     } ],
     "playerSecondConquered" : [ {
       "pieceName" : "Pawn",
@@ -15,15 +54,39 @@
       "pieceName" : "Pawn",
       "firstPlayer" : false
     }, {
-      "pieceName" : "GoldenGeneral",
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Bishop",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Pawn",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Rook",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Knight",
+      "firstPlayer" : false
+    }, {
+      "pieceName" : "Lancer",
       "firstPlayer" : false
     } ],
     "cell" : [ {
       "row" : 0,
       "col" : 0,
       "piece" : {
-        "pieceName" : "Lancer",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 1,
@@ -36,8 +99,8 @@
       "row" : 2,
       "col" : 0,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 3,
@@ -64,7 +127,7 @@
       "row" : 6,
       "col" : 0,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -78,144 +141,144 @@
       "row" : 8,
       "col" : 0,
       "piece" : {
-        "pieceName" : "Lancer",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
       "row" : 0,
       "col" : 1,
-      "piece" : {
-        "pieceName" : "Knight",
-        "firstPlayer" : true
-      }
-    }, {
-      "row" : 1,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "Rook",
-        "firstPlayer" : true
-      }
-    }, {
-      "row" : 2,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
-      }
-    }, {
-      "row" : 3,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 4,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 5,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 6,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 7,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "Bishop",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 8,
-      "col" : 1,
-      "piece" : {
-        "pieceName" : "Knight",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 0,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "SilverGeneral",
-        "firstPlayer" : true
-      }
-    }, {
-      "row" : 1,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 2,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 3,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 4,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 5,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
-      }
-    }, {
-      "row" : 6,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 7,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 8,
-      "col" : 2,
-      "piece" : {
-        "pieceName" : "SilverGeneral",
-        "firstPlayer" : false
-      }
-    }, {
-      "row" : 0,
-      "col" : 3,
       "piece" : {
         "pieceName" : "PromotedPawn",
         "firstPlayer" : false
       }
     }, {
       "row" : 1,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 2,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 3,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 4,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 5,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 6,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 7,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 8,
+      "col" : 1,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 0,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "SilverGeneral",
+        "firstPlayer" : true
+      }
+    }, {
+      "row" : 1,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 2,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 3,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 4,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 5,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 6,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "PromotedPawn",
+        "firstPlayer" : true
+      }
+    }, {
+      "row" : 7,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 8,
+      "col" : 2,
+      "piece" : {
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
+      }
+    }, {
+      "row" : 0,
+      "col" : 3,
+      "piece" : {
+        "pieceName" : "GoldenGeneral",
+        "firstPlayer" : true
+      }
+    }, {
+      "row" : 1,
       "col" : 3,
       "piece" : {
         "pieceName" : "EmptyPiece",
@@ -239,7 +302,7 @@
       "row" : 4,
       "col" : 3,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -267,7 +330,7 @@
       "row" : 8,
       "col" : 3,
       "piece" : {
-        "pieceName" : "GoldenGeneral",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -302,7 +365,7 @@
       "row" : 4,
       "col" : 4,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -358,7 +421,7 @@
       "row" : 3,
       "col" : 5,
       "piece" : {
-        "pieceName" : "EmptyPiece",
+        "pieceName" : "Pawn",
         "firstPlayer" : false
       }
     }, {
@@ -372,8 +435,8 @@
       "row" : 5,
       "col" : 5,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 6,
@@ -393,7 +456,7 @@
       "row" : 8,
       "col" : 5,
       "piece" : {
-        "pieceName" : "GoldenGeneral",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -414,8 +477,8 @@
       "row" : 2,
       "col" : 6,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 3,
@@ -442,7 +505,7 @@
       "row" : 6,
       "col" : 6,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -456,7 +519,7 @@
       "row" : 8,
       "col" : 6,
       "piece" : {
-        "pieceName" : "SilverGeneral",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -470,15 +533,15 @@
       "row" : 1,
       "col" : 7,
       "piece" : {
-        "pieceName" : "Bishop",
-        "firstPlayer" : true
+        "pieceName" : "PromotedPawn",
+        "firstPlayer" : false
       }
     }, {
       "row" : 2,
       "col" : 7,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 3,
@@ -491,8 +554,8 @@
       "row" : 4,
       "col" : 7,
       "piece" : {
-        "pieceName" : "EmptyPiece",
-        "firstPlayer" : false
+        "pieceName" : "Pawn",
+        "firstPlayer" : true
       }
     }, {
       "row" : 5,
@@ -505,21 +568,21 @@
       "row" : 6,
       "col" : 7,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
       "row" : 7,
       "col" : 7,
       "piece" : {
-        "pieceName" : "Rook",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
       "row" : 8,
       "col" : 7,
       "piece" : {
-        "pieceName" : "Knight",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
@@ -540,8 +603,8 @@
       "row" : 2,
       "col" : 8,
       "piece" : {
-        "pieceName" : "Pawn",
-        "firstPlayer" : true
+        "pieceName" : "EmptyPiece",
+        "firstPlayer" : false
       }
     }, {
       "row" : 3,
@@ -568,7 +631,7 @@
       "row" : 6,
       "col" : 8,
       "piece" : {
-        "pieceName" : "Pawn",
+        "pieceName" : "EmptyPiece",
         "firstPlayer" : false
       }
     }, {
