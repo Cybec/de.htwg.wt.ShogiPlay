@@ -12,6 +12,28 @@ resolvers += Resolver.jcenterRepo
 
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
+
+
+//Code für Shogi jar
+libraryDependencies += "org.scalamock" %% "scalamock" % "4.1.0" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.0.0-M2"
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+libraryDependencies += "com.h2database" % "h2" % "1.4.196"
+
+libraryDependencies += "junit" % "junit" % "4.8" % "test"
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.6"
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
+libraryDependencies += "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2"
+libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.1"
+libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.5.11"
+libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.1"
+libraryDependencies += "org.jsoup" % "jsoup" % "1.9.1"
+
+
+
+
+
 libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette" % "5.0.7",
   "com.mohiva" %% "play-silhouette-password-bcrypt" % "5.0.7",
@@ -33,22 +55,6 @@ libraryDependencies ++= Seq(
   filters
 )
 
-libraryDependencies += "org.scalamock" %% "scalamock" % "4.1.0" % Test
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
-libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.0.0-M2"
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
-libraryDependencies += "com.h2database" % "h2" % "1.4.196"
-
-//Code für Shogi jar
-libraryDependencies += "junit" % "junit" % "4.8" % "test"
-libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.0.0-M2"
-libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.6"
-libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
-libraryDependencies += "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2"
-libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.1"
-libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.5.11"
-libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.1"
-libraryDependencies += "org.jsoup" % "jsoup" % "1.9.1"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
