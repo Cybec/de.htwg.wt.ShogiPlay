@@ -4,15 +4,15 @@ import scalariform.formatter.preferences._
 
 name := "play-silhouette-seed"
 
-version := "5.0.7"
+version := "1.0.0"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.7"
 
 resolvers += Resolver.jcenterRepo
 
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
-
+updateOptions := updateOptions.value.withLatestSnapshots(false)
 
 //Code für Shogi jar
 //libraryDependencies += "org.scalamock" %% "scalamock" % "4.1.0" % Test
