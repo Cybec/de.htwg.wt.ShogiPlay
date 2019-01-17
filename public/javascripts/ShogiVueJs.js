@@ -86,7 +86,7 @@ const PlayField = new Vue({
         img: []
     },
     created() {
-        fetch('boardToJson')
+        fetch('shogi/boardToJson')
             .then(response => response.json())
             .then(json => {
                 update(this);
@@ -109,21 +109,21 @@ new Vue({
             newGame();
         },
         emptyGame: function () {
-            fetch('empty')
+            fetch('shogi/empty')
                 .then(response => response.json())
                 .then(json => {
                     update();
                 })
         },
         saveGame: function () {
-            fetch('save')
+            fetch('shogi/save')
                 .then(response => response.json())
                 .then(json => {
                     update();
                 })
         },
         loadGame: function () {
-            fetch('load')
+            fetch('shogi/load')
                 .then(response => response.json())
                 .then(json => {
                     update();
@@ -133,14 +133,14 @@ new Vue({
             document.getElementById('AboutModal').style.display = "block";
         },
         undoGame: function () {
-            fetch('undo')
+            fetch('shogi/undo')
                 .then(response => response.json())
                 .then(json => {
                     update();
                 })
         },
         redoGame: function () {
-            fetch('redo')
+            fetch('shogi/redo')
                 .then(response => response.json())
                 .then(json => {
                     update();
@@ -156,7 +156,7 @@ new Vue({
 });
 
 function update() {
-    fetch('boardToJson')
+    fetch('shogi/boardToJson')
         .then(response => response.json())
         .then(json => {
             //Reset Conquered
@@ -300,7 +300,7 @@ function newGame() {
     simuCount = 0;
     helper = 0;
     helper2 = 0;
-    fetch('new')
+    fetch('shogi/new')
         .then(response => response.json())
         .then(json => {
             update();
