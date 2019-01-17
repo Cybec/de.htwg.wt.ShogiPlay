@@ -24,9 +24,9 @@ function scalingIMG() {
         square = width / 14;
     }
 
-    console.log(width);
-    console.log(height);
-    console.log(square);
+    // console.log(width);
+    // console.log(height);
+    // console.log(square);
 
     [].forEach.call(els, function (el) {
         el.style.width = square + "px";
@@ -47,7 +47,7 @@ $(document).ready(function () {
     $.ajax(
         {
             type: 'GET',
-            url: "SimuToJson",
+            url: "shogi/SimuToJson",
             dataType: 'Json',
 
             success: function (simu) {
@@ -190,7 +190,7 @@ function update() {
 function clickOnBoard(clicked_id) {
     if (lastPM.includes(clicked_id.replace("-", ","))) {
         if ('0123456789'.indexOf(last_clicked_id.charAt(0)) !== -1) {
-            var destLink = "mv/" +
+            var destLink = "shogi/mv/" +
                 last_clicked_id.charAt(0) + "/" +
                 last_clicked_id.charAt(2) + "/" +
                 clicked_id.charAt(0) + "/" +
@@ -218,7 +218,7 @@ function clickOnBoard(clicked_id) {
             $.ajax(
                 {
                     type: 'GET',
-                    url: "mvcp/"
+                    url: "shogi/mvcp/"
                         + last_clicked_id + "/" +
                         clicked_id.charAt(0) + "/" +
                         clicked_id.charAt(2),

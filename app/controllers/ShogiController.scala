@@ -138,7 +138,6 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil:
       "jsonArrayOfStrings3" -> jsonArrayOfStrings_3,
       "jsonArrayOfStrings4" -> jsonArrayOfStrings_4
     )))
-    Future.successful(Ok(""))
   }
 
   def boardToJson(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
