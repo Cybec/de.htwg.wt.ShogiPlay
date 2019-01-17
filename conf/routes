@@ -27,19 +27,19 @@ GET         /account/activate/:token             controllers.ActivateAccountCont
 
 # Controller for Shogi
 GET         /shogi                               controllers.ShogiController.shogi
-GET         /shogi/new                                 controllers.ShogiController.newBoard
-GET         /shogi/empty                               controllers.ShogiController.emptyBoard
-GET         /shogi/undo                                controllers.ShogiController.undo
-GET         /shogi/redo                                controllers.ShogiController.redo
-GET         /shogi/pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
-GET         /shogi/mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
-GET         /shogi/mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
-GET         /shogi/mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
-GET         /shogi/pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
-GET         /shogi/save                                controllers.ShogiController.save
-GET         /shogi/load                                controllers.ShogiController.load
-GET         /shogi/end                                 controllers.ShogiController.end
-GET         /shogi/about                               controllers.ShogiController.about
+GET         /new                                 controllers.ShogiController.newBoard
+GET         /empty                               controllers.ShogiController.emptyBoard
+GET         /undo                                controllers.ShogiController.undo
+GET         /redo                                controllers.ShogiController.redo
+GET         /pmv/:x/:y                           controllers.ShogiController.possibleMoves(x:Int, y: Int)
+GET         /mv/:x/:y/:i/:j                      controllers.ShogiController.movePiece(x: Int, y: Int, i: Int, j: Int)
+GET         /mv/:x/:y/:i/:j/:promotion           controllers.ShogiController.promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String)
+GET         /mvcp/:pieceAbbrevation/:x/:y        controllers.ShogiController.moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int)
+GET         /pmvcp/:pieceAbbrevation             controllers.ShogiController.possibleMovesConqueredPiece(pieceAbbrevation: String)
+GET         /save                                controllers.ShogiController.save
+GET         /load                                controllers.ShogiController.load
+GET         /end                                 controllers.ShogiController.end
+GET         /about                               controllers.ShogiController.about
 
 
 GET         /SimuToJson                          controllers.ShogiController.SimuToJson
