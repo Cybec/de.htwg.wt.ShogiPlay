@@ -319,7 +319,6 @@ function Simulation() {
 
     clickOnBoard(simuList[helper][helper2]);
 
-
     helper2 += 1;
     if (helper2 >= 2) {
         helper2 = 0;
