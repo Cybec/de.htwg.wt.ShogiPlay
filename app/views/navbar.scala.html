@@ -15,32 +15,32 @@
 
     <div class="collapse MyNavbar-collapse" id="navbarSupportedContent">
         <ul class="MyNavbar-nav mr-auto">
-            <li class="myNav-item mymyDropdown">
-                <a class="nav-link myDropdown-toggle" href="#" id="navbarmyDropdown" role="button" data-toggle="myDropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Game
                 </a>
-                <div class="myDropdown-menu" aria-labelledby="navbarmyDropdown" style="font-size: x-large">
-                    <a class="myDropdown-item" href="#" v-on:click="newGame">New</a>
-                    <a class="myDropdown-item" href="#" v-on:click="emptyGame">Empty</a>
-                    <div class="myDropdown-divider"></div>
-                    <a class="myDropdown-item" href="#" v-on:click="saveGame">Save</a>
-                    <a class="myDropdown-item" href="#" v-on:click="loadGame">Load</a>
-                    <div class="myDropdown-divider"></div>
-                    <a class="myDropdown-item" href="#" v-on:click="aboutGame">About</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
+                    <a class="dropdown-item" href="#" v-on:click="newGame">New</a>
+                    <a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" v-on:click="saveGame">Save</a>
+                    <a class="dropdown-item" href="#" v-on:click="loadGame">Load</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" v-on:click="aboutGame">About</a>
                 </div>
             </li>
 
-            <li class="myNav-item myDropdown">
-                <a class="nav-link myDropdown-toggle" href="#" id="navbarmyDropdown" role="button" data-toggle="myDropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Edit
                 </a>
-                <div class="myDropdown-menu" aria-labelledby="navbarmyDropdown" style="font-size: x-large">
-                    <a class="myDropdown-item" href="#" v-on:click="undoGame">Undo</a>
-                    <a class="myDropdown-item" href="#" v-on:click="redoGame">Redo</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
+                    <a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>
+                    <a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>
                 </div>
             </li>
 
-            <li id="Simulation" class="myNav-item">
+            <li id="Simulation" class="nav-item">
                 <a class="nav-link" href="#" v-on:click="simulation">Simulation</a>
             </li>
         </ul>
