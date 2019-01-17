@@ -85,6 +85,7 @@ const PlayField = new Vue({
         playerSecondCon: [],
         img: []
     },
+
     created() {
         fetch('shogi/boardToJson')
             .then(response => response.json())
