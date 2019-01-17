@@ -183,9 +183,8 @@ function update() {
                     posMoves: json.playerSecondConquered[i].posMovs
                 });
             }
-        })
-
-    scalingIMG();
+            scalingIMG()
+        });
 }
 
 function clickOnBoard(clicked_id) {

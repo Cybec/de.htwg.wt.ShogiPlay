@@ -2408,13 +2408,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #007bff
 }
 
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.myDropdown-toggle {
     color: #fff;
     background-color: #0062cc;
     border-color: #005cbf
 }
 
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
 }
 
@@ -2440,13 +2440,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #6c757d
 }
 
-.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.myDropdown-toggle {
     color: #fff;
     background-color: #545b62;
     border-color: #4e555b
 }
 
-.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-secondary.dropdown-toggle:focus {
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-secondary.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
 }
 
@@ -2472,13 +2472,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #28a745
 }
 
-.btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show > .btn-success.dropdown-toggle {
+.btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show > .btn-success.myDropdown-toggle {
     color: #fff;
     background-color: #1e7e34;
     border-color: #1c7430
 }
 
-.btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show > .btn-success.dropdown-toggle:focus {
+.btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show > .btn-success.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
 }
 
@@ -2504,13 +2504,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #17a2b8
 }
 
-.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.myDropdown-toggle {
     color: #fff;
     background-color: #117a8b;
     border-color: #10707f
 }
 
-.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus {
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
 }
 
@@ -2536,13 +2536,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #ffc107
 }
 
-.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show > .btn-warning.dropdown-toggle {
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show > .btn-warning.myDropdown-toggle {
     color: #212529;
     background-color: #d39e00;
     border-color: #c69500
 }
 
-.btn-warning:not(:disabled):not(.disabled).active:focus, .btn-warning:not(:disabled):not(.disabled):active:focus, .show > .btn-warning.dropdown-toggle:focus {
+.btn-warning:not(:disabled):not(.disabled).active:focus, .btn-warning:not(:disabled):not(.disabled):active:focus, .show > .btn-warning.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
 }
 
@@ -2568,13 +2568,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #dc3545
 }
 
-.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show > .btn-danger.dropdown-toggle {
+.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show > .btn-danger.myDropdown-toggle {
     color: #fff;
     background-color: #bd2130;
     border-color: #b21f2d
 }
 
-.btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, .show > .btn-danger.dropdown-toggle:focus {
+.btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, .show > .btn-danger.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
 }
 
@@ -2600,13 +2600,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #f8f9fa
 }
 
-.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show > .btn-light.dropdown-toggle {
+.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show > .btn-light.myDropdown-toggle {
     color: #212529;
     background-color: #dae0e5;
     border-color: #d3d9df
 }
 
-.btn-light:not(:disabled):not(.disabled).active:focus, .btn-light:not(:disabled):not(.disabled):active:focus, .show > .btn-light.dropdown-toggle:focus {
+.btn-light:not(:disabled):not(.disabled).active:focus, .btn-light:not(:disabled):not(.disabled):active:focus, .show > .btn-light.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
 }
 
@@ -2632,13 +2632,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #343a40
 }
 
-.btn-dark:not(:disabled):not(.disabled).active, .btn-dark:not(:disabled):not(.disabled):active, .show > .btn-dark.dropdown-toggle {
+.btn-dark:not(:disabled):not(.disabled).active, .btn-dark:not(:disabled):not(.disabled):active, .show > .btn-dark.myDropdown-toggle {
     color: #fff;
     background-color: #1d2124;
     border-color: #171a1d
 }
 
-.btn-dark:not(:disabled):not(.disabled).active:focus, .btn-dark:not(:disabled):not(.disabled):active:focus, .show > .btn-dark.dropdown-toggle:focus {
+.btn-dark:not(:disabled):not(.disabled).active:focus, .btn-dark:not(:disabled):not(.disabled):active:focus, .show > .btn-dark.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
 }
 
@@ -2664,13 +2664,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.myDropdown-toggle {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff
 }
 
-.btn-outline-primary:not(:disabled):not(.disabled).active:focus, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
 }
 
@@ -2696,13 +2696,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show > .btn-outline-secondary.dropdown-toggle {
+.btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show > .btn-outline-secondary.myDropdown-toggle {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d
 }
 
-.btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-secondary.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
 }
 
@@ -2728,13 +2728,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show > .btn-outline-success.dropdown-toggle {
+.btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show > .btn-outline-success.myDropdown-toggle {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745
 }
 
-.btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-success.dropdown-toggle:focus {
+.btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-success.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
 }
 
@@ -2760,13 +2760,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-info:not(:disabled):not(.disabled).active, .btn-outline-info:not(:disabled):not(.disabled):active, .show > .btn-outline-info.dropdown-toggle {
+.btn-outline-info:not(:disabled):not(.disabled).active, .btn-outline-info:not(:disabled):not(.disabled):active, .show > .btn-outline-info.myDropdown-toggle {
     color: #fff;
     background-color: #17a2b8;
     border-color: #17a2b8
 }
 
-.btn-outline-info:not(:disabled):not(.disabled).active:focus, .btn-outline-info:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-info.dropdown-toggle:focus {
+.btn-outline-info:not(:disabled):not(.disabled).active:focus, .btn-outline-info:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-info.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
 }
 
@@ -2792,13 +2792,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show > .btn-outline-warning.dropdown-toggle {
+.btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show > .btn-outline-warning.myDropdown-toggle {
     color: #212529;
     background-color: #ffc107;
     border-color: #ffc107
 }
 
-.btn-outline-warning:not(:disabled):not(.disabled).active:focus, .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
+.btn-outline-warning:not(:disabled):not(.disabled).active:focus, .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-warning.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
 }
 
@@ -2824,13 +2824,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-danger:not(:disabled):not(.disabled).active, .btn-outline-danger:not(:disabled):not(.disabled):active, .show > .btn-outline-danger.dropdown-toggle {
+.btn-outline-danger:not(:disabled):not(.disabled).active, .btn-outline-danger:not(:disabled):not(.disabled):active, .show > .btn-outline-danger.myDropdown-toggle {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545
 }
 
-.btn-outline-danger:not(:disabled):not(.disabled).active:focus, .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
+.btn-outline-danger:not(:disabled):not(.disabled).active:focus, .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-danger.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
 }
 
@@ -2856,13 +2856,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show > .btn-outline-light.dropdown-toggle {
+.btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show > .btn-outline-light.myDropdown-toggle {
     color: #212529;
     background-color: #f8f9fa;
     border-color: #f8f9fa
 }
 
-.btn-outline-light:not(:disabled):not(.disabled).active:focus, .btn-outline-light:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-light.dropdown-toggle:focus {
+.btn-outline-light:not(:disabled):not(.disabled).active:focus, .btn-outline-light:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-light.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
 }
 
@@ -2888,13 +2888,13 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: transparent
 }
 
-.btn-outline-dark:not(:disabled):not(.disabled).active, .btn-outline-dark:not(:disabled):not(.disabled):active, .show > .btn-outline-dark.dropdown-toggle {
+.btn-outline-dark:not(:disabled):not(.disabled).active, .btn-outline-dark:not(:disabled):not(.disabled):active, .show > .btn-outline-dark.myDropdown-toggle {
     color: #fff;
     background-color: #343a40;
     border-color: #343a40
 }
 
-.btn-outline-dark:not(:disabled):not(.disabled).active:focus, .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
+.btn-outline-dark:not(:disabled):not(.disabled).active:focus, .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-dark.myDropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
 }
 
@@ -2980,11 +2980,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-.dropdown, .dropleft, .dropright, .dropup {
+.myDropdown, .dropleft, .dropright, .dropup {
     position: relative
 }
 
-.dropdown-toggle::after {
+.myDropdown-toggle::after {
     display: inline-block;
     width: 0;
     height: 0;
@@ -2997,11 +2997,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-left: .3em solid transparent
 }
 
-.dropdown-toggle:empty::after {
+.myDropdown-toggle:empty::after {
     margin-left: 0
 }
 
-.dropdown-menu {
+.myDropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -3021,19 +3021,19 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-radius: .25rem
 }
 
-.dropdown-menu-right {
+.myDropdown-menu-right {
     right: 0;
     left: auto
 }
 
-.dropup .dropdown-menu {
+.dropup .myDropdown-menu {
     top: auto;
     bottom: 100%;
     margin-top: 0;
     margin-bottom: .125rem
 }
 
-.dropup .dropdown-toggle::after {
+.dropup .myDropdown-toggle::after {
     display: inline-block;
     width: 0;
     height: 0;
@@ -3046,11 +3046,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-left: .3em solid transparent
 }
 
-.dropup .dropdown-toggle:empty::after {
+.dropup .myDropdown-toggle:empty::after {
     margin-left: 0
 }
 
-.dropright .dropdown-menu {
+.dropright .myDropdown-menu {
     top: 0;
     right: auto;
     left: 100%;
@@ -3058,7 +3058,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-left: .125rem
 }
 
-.dropright .dropdown-toggle::after {
+.dropright .myDropdown-toggle::after {
     display: inline-block;
     width: 0;
     height: 0;
@@ -3071,15 +3071,15 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-left: .3em solid
 }
 
-.dropright .dropdown-toggle:empty::after {
+.dropright .myDropdown-toggle:empty::after {
     margin-left: 0
 }
 
-.dropright .dropdown-toggle::after {
+.dropright .myDropdown-toggle::after {
     vertical-align: 0
 }
 
-.dropleft .dropdown-menu {
+.dropleft .myDropdown-menu {
     top: 0;
     right: 100%;
     left: auto;
@@ -3087,7 +3087,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-right: .125rem
 }
 
-.dropleft .dropdown-toggle::after {
+.dropleft .myDropdown-toggle::after {
     display: inline-block;
     width: 0;
     height: 0;
@@ -3096,11 +3096,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     content: ""
 }
 
-.dropleft .dropdown-toggle::after {
+.dropleft .myDropdown-toggle::after {
     display: none
 }
 
-.dropleft .dropdown-toggle::before {
+.dropleft .myDropdown-toggle::before {
     display: inline-block;
     width: 0;
     height: 0;
@@ -3112,27 +3112,27 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-bottom: .3em solid transparent
 }
 
-.dropleft .dropdown-toggle:empty::after {
+.dropleft .myDropdown-toggle:empty::after {
     margin-left: 0
 }
 
-.dropleft .dropdown-toggle::before {
+.dropleft .myDropdown-toggle::before {
     vertical-align: 0
 }
 
-.dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=top] {
+.myDropdown-menu[x-placement^=bottom], .myDropdown-menu[x-placement^=left], .myDropdown-menu[x-placement^=right], .myDropdown-menu[x-placement^=top] {
     right: auto;
     bottom: auto
 }
 
-.dropdown-divider {
+.myDropdown-divider {
     height: 0;
     margin: .5rem 0;
     overflow: hidden;
     border-top: 1px solid #e9ecef
 }
 
-.dropdown-item {
+.myDropdown-item {
     display: block;
     width: 100%;
     padding: .25rem 1.5rem;
@@ -3145,28 +3145,28 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border: 0
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
+.myDropdown-item:focus, .myDropdown-item:hover {
     color: #16181b;
     text-decoration: none;
     background-color: #f8f9fa
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.myDropdown-item.active, .myDropdown-item:active {
     color: #fff;
     text-decoration: none;
     background-color: #007bff
 }
 
-.dropdown-item.disabled, .dropdown-item:disabled {
+.myDropdown-item.disabled, .myDropdown-item:disabled {
     color: #6c757d;
     background-color: transparent
 }
 
-.dropdown-menu.show {
+.myDropdown-menu.show {
     display: block
 }
 
-.dropdown-header {
+.myDropdown-header {
     display: block;
     padding: .5rem 1.5rem;
     margin-bottom: 0;
@@ -3175,7 +3175,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     white-space: nowrap
 }
 
-.dropdown-item-text {
+.myDropdown-item-text {
     display: block;
     padding: .25rem 1.5rem;
     color: #212529
@@ -3223,7 +3223,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-left: 0
 }
 
-.btn-group > .btn-group:not(:last-child) > .btn, .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn-group:not(:last-child) > .btn, .btn-group > .btn:not(:last-child):not(.myDropdown-toggle) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0
 }
@@ -3233,25 +3233,25 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-bottom-left-radius: 0
 }
 
-.dropdown-toggle-split {
+.myDropdown-toggle-split {
     padding-right: .5625rem;
     padding-left: .5625rem
 }
 
-.dropdown-toggle-split::after, .dropright .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after {
+.myDropdown-toggle-split::after, .dropright .myDropdown-toggle-split::after, .dropup .myDropdown-toggle-split::after {
     margin-left: 0
 }
 
-.dropleft .dropdown-toggle-split::before {
+.dropleft .myDropdown-toggle-split::before {
     margin-right: 0
 }
 
-.btn-group-sm > .btn + .dropdown-toggle-split, .btn-sm + .dropdown-toggle-split {
+.btn-group-sm > .btn + .myDropdown-toggle-split, .btn-sm + .myDropdown-toggle-split {
     padding-right: .375rem;
     padding-left: .375rem
 }
 
-.btn-group-lg > .btn + .dropdown-toggle-split, .btn-lg + .dropdown-toggle-split {
+.btn-group-lg > .btn + .myDropdown-toggle-split, .btn-lg + .myDropdown-toggle-split {
     padding-right: .75rem;
     padding-left: .75rem
 }
@@ -3274,7 +3274,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-left: 0
 }
 
-.btn-group-vertical > .btn-group:not(:last-child) > .btn, .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle) {
+.btn-group-vertical > .btn-group:not(:last-child) > .btn, .btn-group-vertical > .btn:not(:last-child):not(.myDropdown-toggle) {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0
 }
@@ -3412,7 +3412,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-radius: .2rem
 }
 
-.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text {
+.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.myDropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0
 }
@@ -3837,7 +3837,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-bottom: 1px solid #dee2e6
 }
 
-.nav-tabs .nav-item {
+.nav-tabs .myNav-item {
     margin-bottom: -1px
 }
 
@@ -3857,13 +3857,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-color: transparent
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .myNav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #495057;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff
 }
 
-.nav-tabs .dropdown-menu {
+.nav-tabs .myDropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
     border-top-right-radius: 0
@@ -3878,13 +3878,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     background-color: #007bff
 }
 
-.nav-fill .nav-item {
+.nav-fill .myNav-item {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     text-align: center
 }
 
-.nav-justified .nav-item {
+.nav-justified .myNav-item {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
     -ms-flex-positive: 1;
@@ -3954,7 +3954,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     padding-left: 0
 }
 
-.MyNavbar-nav .dropdown-menu {
+.MyNavbar-nav .myDropdown-menu {
     position: static;
     float: none
 }
@@ -4021,7 +4021,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-direction: row
     }
 
-    .MyNavbar-expand-sm .MyNavbar-nav .dropdown-menu {
+    .MyNavbar-expand-sm .MyNavbar-nav .myDropdown-menu {
         position: absolute
     }
 
@@ -4067,7 +4067,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-direction: row
     }
 
-    .MyNavbar-expand-md .MyNavbar-nav .dropdown-menu {
+    .MyNavbar-expand-md .MyNavbar-nav .myDropdown-menu {
         position: absolute
     }
 
@@ -4113,7 +4113,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-direction: row
     }
 
-    .MyNavbar-expand-lg .MyNavbar-nav .dropdown-menu {
+    .MyNavbar-expand-lg .MyNavbar-nav .myDropdown-menu {
         position: absolute
     }
 
@@ -4159,7 +4159,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-direction: row
     }
 
-    .MyNavbar-expand-xl .MyNavbar-nav .dropdown-menu {
+    .MyNavbar-expand-xl .MyNavbar-nav .myDropdown-menu {
         position: absolute
     }
 
@@ -4202,7 +4202,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-direction: row
 }
 
-.MyNavbar-expand .MyNavbar-nav .dropdown-menu {
+.MyNavbar-expand .MyNavbar-nav .myDropdown-menu {
     position: absolute
 }
 
