@@ -86,7 +86,7 @@ const PlayField = new Vue({
         img: []
     },
     created() {
-        fetch('http://shoshogi.herokuapp.com/boardToJson')
+        fetch('boardToJson')
             .then(response => response.json())
             .then(json => {
                 update(this);
