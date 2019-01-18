@@ -7,26 +7,25 @@
 @(user: models.User)(implicit request: RequestHeader, messages: Messages, webJarsUtil: WebJarsUtil, assets: AssetsFinder)
 
 
-    @main(messages("home.title"), Some(user)) {
-        @*<link rel="styles" href="@assets.path("styles/bootstrap.min.css")">*@
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
+@main(messages("home.title"), Some(user)) {
+    @*<link rel="styles" href="@assets.path("styles/bootstrap.min.css")">*@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
 
-        <link rel="stylesheet" href="@assets.path("styles/MyNavbar.css")">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link rel="stylesheet" media="screen" href="@assets.path("styles/pieces.css")">
-        <link rel="shortcut icon" type="image/png" href="@assets.path("images/favicon.png")">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <body style=" text-align: center;">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" media="screen" href="@assets.path("styles/pieces.css")">
+    <link rel="shortcut icon" type="image/png" href="@assets.path("images/favicon.png")">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <body style=" text-align: center;">
 
-            @navbar(assets)
-            @PlayingField()
-            @aboutTheGame()
-            <script src="@assets.path("javascripts/ShogiVueJs.js")" ></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
-        </body>
-    }
+        @navbar(assets)
+        @PlayingField()
+        @aboutTheGame()
+        <script src="@assets.path("javascripts/ShogiVueJs.js")" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
+    </body>
+}
 
 
 
