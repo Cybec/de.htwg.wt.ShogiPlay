@@ -350,7 +350,7 @@ function Simulation() {
 }
 
 function connectWebSocket() {
-    var websocket = new WebSocket("ws://localhost:9000/shogi/websocket");
+    var websocket = new WebSocket("ws://shoshogi.herokuapp.com/shogi/websocket");
     websocket.setTimeout
 
     websocket.onopen = function (event) {
