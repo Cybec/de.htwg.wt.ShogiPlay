@@ -1,9 +1,9 @@
 @import controllers.AssetsFinder
 
 @(implicit assets: AssetsFinder)
-
 <div style=" width: 100vw;">
     <link scoped rel="stylesheet" media="screen" href="@assets.path("styles/pieces.css")">
+    @*<link scoped rel="stylesheet" media="screen" href="@assets.path("styles/MyNavbar.css")">*@
 
     <div id="PlayingField" class="playingField">
         <div id="table" class="container">
@@ -18,7 +18,7 @@
             </div>
             @*-------------------------------------------------------------------------------------------------*@
 
-            <div class="row align-items-center rowBoard" v-for="(i, row) in size">
+            <div v-bind="{id: 'row_' + row }" class="row align-items-center rowBoard" v-for="(i, row) in size">
                 <div v-on:click="pieceClicked($event)" v-bind="{id: col +'-' + row}" class="btn btn-primary col cell" v-for="(i, col) in size">
                     <label v-bind="{id: 'Label_'+col +'-' + row }"
                     style="display: none;" >{{ posMoves[(col * 9) + row] }}</label>
