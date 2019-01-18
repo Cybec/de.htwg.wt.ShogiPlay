@@ -2,56 +2,107 @@
 
 @(implicit assets: AssetsFinder)
 
-<div>
-    <link scoped rel="stylesheet" href="@assets.path("styles/MyNavbar.css")">
-    @*<style src="@assets.path("styles/MyNavbar.css")"></style>*@
-
-    <nav id="Navbar" class="MyNavbar OwnNavbar MyNavbar-expand-lg MyNavbar-light">
-        <a class="MyNavbar-brand" href="#">
-            <div id="logo" class="logo" v-on:click="logo">
-                <span><img src="@assets.path("images/logo/c.png")" class="Myd-inline-block Myalign-top img_style_logo" alt=""></span>
-                <span style="padding-left: 10px;">Shogi</span>
-            </div>
-        </a>
-        <button class="MyNavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="MyNavbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse MyNavbar-collapse" id="navbarSupportedContent">
-            <ul class="MyNavbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Game
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
-                        <a class="dropdown-item" href="#" v-on:click="newGame">New</a>
-                        <a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" v-on:click="saveGame">Save</a>
-                        <a class="dropdown-item" href="#" v-on:click="loadGame">Load</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" v-on:click="aboutGame">About</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Edit
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
-                        <a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>
-                        <a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>
-                    </div>
-                </li>
-
-                <li id="Simulation" class="nav-item">
-                    <a class="nav-link" href="#" v-on:click="simulation">Simulation</a>
-                </li>
-            </ul>
+<div id="Navbar" class="navbar OwnNavbar navbar-inverse" role="navigation" style="background: transparent;
+    border: 0px">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <div id="logo" class="logo" v-on:click="logo">
+                    <span><img src="@assets.path("images/logo/c.png")" class="d-inline-block align-top img_style_logo" alt=""></span>
+                </div>
+            </a>
         </div>
-    </nav>
-    @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
-    @*<script scoped src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
-    <script scoped src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    @*<script scoped src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>*@
+        <nav class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="myNavbarItems" href="/">Shogi</a></li>
+                <li>
+                    <div class="dropdown" style="margin: 3px;">
+                        <button class="myNavbarItems btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Game
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" v-on:click="newGame">New</a></li>
+                            <li><a href="#" v-on:click="emptyGame">Empty</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" v-on:click="saveGame">Save</a></li>
+                            <li><a href="#" v-on:click="loadGame">Load</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" v-on:click="aboutGame">About</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown" style="margin: 3px;">
+                        <button class="myNavbarItems btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Edit
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" v-on:click="undoGame">Undo</a></li>
+                            <li><a href="#" v-on:click="redoGame">Redo</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="myNavbarItems" href="#" v-on:click="simulation">Simulation</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
+@*<div>*@
+@*<link scoped rel="stylesheet" href="@assets.path("styles/navbar.css")">*@
+@*<style src="@assets.path("styles/navbar.css")"></style>*@
+
+@*<nav id="Navbar" class="navbar OwnNavbar navbar-expand-lg navbar-light">*@
+@*<a class="navbar-brand" href="#">*@
+@*<div id="logo" class="logo" v-on:click="logo">*@
+@*<span><img src="@assets.path("images/logo/c.png")" class="d-inline-block align-top img_style_logo" alt=""></span>*@
+@*<span style="padding-left: 10px;">Shogi</span>*@
+@*</div>*@
+@*</a>*@
+@*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">*@
+@*<span class="navbar-toggler-icon"></span>*@
+@*</button>*@
+
+@*<div class="collapse navbar-collapse" id="navbarSupportedContent">*@
+@*<ul class="navbar-nav mr-auto">*@
+@*<li class="nav-item dropdown">*@
+@*<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*@
+@*Game*@
+@*</a>*@
+@*<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">*@
+@*<a class="dropdown-item" href="#" v-on:click="newGame">New</a>*@
+@*<a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>*@
+@*<div class="dropdown-divider"></div>*@
+@*<a class="dropdown-item" href="#" v-on:click="saveGame">Save</a>*@
+@*<a class="dropdown-item" href="#" v-on:click="loadGame">Load</a>*@
+@*<div class="dropdown-divider"></div>*@
+@*<a class="dropdown-item" href="#" v-on:click="aboutGame">About</a>*@
+@*</div>*@
+@*</li>*@
+
+@*<li class="nav-item dropdown">*@
+@*<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*@
+@*Edit*@
+@*</a>*@
+@*<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">*@
+@*<a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>*@
+@*<a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>*@
+@*</div>*@
+@*</li>*@
+
+@*<li id="Simulation" class="nav-item">*@
+@*<a class="nav-link" href="#" v-on:click="simulation">Simulation</a>*@
+@*</li>*@
+@*</ul>*@
+@*</div>*@
+@*</nav>*@
+@*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
+@*<script scoped src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+@*<script scoped src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>*@
+@*<script scoped src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>*@
+@*</div>*@
+

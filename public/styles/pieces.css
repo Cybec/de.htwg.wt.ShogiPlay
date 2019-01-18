@@ -108,9 +108,11 @@ html, body {
 .playingField {
     width: 90vw;
     margin: auto;
+
+    align-content: center;
 }
 
-.navbar{
+.navbar {
     font-size: large;
 }
 
@@ -202,4 +204,28 @@ html, body {
     font-size: x-large;
     width: 100vw;
     margin-bottom: 50px;
+}
+
+.myNavbarItems {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0px !important;
+    font-size: x-large !important;
+    color: #6b6656 !important;
+    margin-top: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    font-family: Arial;
+    text-shadow: none;
+    /*#ffebb6*/
+}
+
+.dropdown-menu {
+    background: #feffe9;
+    font-size: large !important;
+}
+
+.divider {
+    background: #7a8a99;
+    height: 3px !important;
 }
