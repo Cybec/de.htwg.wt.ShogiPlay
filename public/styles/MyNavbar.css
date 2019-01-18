@@ -3959,7 +3959,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     padding-bottom: .5rem
 }
 
-.MyNavbar-collapse {
+.navbar-collapse {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     -ms-flex-positive: 1;
@@ -4029,7 +4029,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-wrap: nowrap
     }
 
-    .MyNavbar-expand-sm .MyNavbar-collapse {
+    .MyNavbar-expand-sm .navbar-collapse {
         display: -ms-flexbox !important;
         display: flex !important;
         -ms-flex-preferred-size: auto;
@@ -4075,7 +4075,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-wrap: nowrap
     }
 
-    .MyNavbar-expand-md .MyNavbar-collapse {
+    .MyNavbar-expand-md .navbar-collapse {
         display: -ms-flexbox !important;
         display: flex !important;
         -ms-flex-preferred-size: auto;
@@ -4121,7 +4121,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-wrap: nowrap
     }
 
-    .MyNavbar-expand-lg .MyNavbar-collapse {
+    .MyNavbar-expand-lg .navbar-collapse {
         display: -ms-flexbox !important;
         display: flex !important;
         -ms-flex-preferred-size: auto;
@@ -4167,7 +4167,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         flex-wrap: nowrap
     }
 
-    .MyNavbar-expand-xl .MyNavbar-collapse {
+    .MyNavbar-expand-xl .navbar-collapse {
         display: -ms-flexbox !important;
         display: flex !important;
         -ms-flex-preferred-size: auto;
@@ -4210,7 +4210,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-wrap: nowrap
 }
 
-.MyNavbar-expand .MyNavbar-collapse {
+.MyNavbar-expand .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;
     -ms-flex-preferred-size: auto;

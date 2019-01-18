@@ -25,12 +25,25 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
+        <script>
+            function navbarButton() {
+                var elem = document.getElementById('navbartop');
+                console.log(elem);
+
+                if (elem.style.display === "block") {
+                    elem.style.display = "none";
+                } else {
+                    elem.style.display = "block";
+                }
+            }
+        </script>
     </head>
     <body>
-        <header class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: black;">
+        <header id="NavbarMain" class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: black;">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <button onclick="navbarButton()" class="navbar-toggle" type="button">
                         <span class="sr-only">@messages("toggle.navigation")</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -38,7 +51,7 @@
                     </button>
                     <a class="navbar-brand" href="#">Shogi</a>
                 </div>
-                <nav class="collapse navbar-collapse">
+                <nav class="collapse navbar-collapse" id="navbartop">
                     <ul class="nav navbar-nav">
                         <li><a href="@controllers.routes.ApplicationController.index">@messages("home")</a></li>
                         <li><a href="https://github.com/Cybec/de.htwg.wt.ShogiPlay">GitHub</a></li>

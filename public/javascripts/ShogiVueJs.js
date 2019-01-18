@@ -11,7 +11,6 @@ var simuCount = 1;
 
 function scalingIMG() {
     var width = document.getElementById('player1Container').getBoundingClientRect().width;
-    // var height = document.getElementById('starter-template').getBoundingClientRect().height;
     var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     height -= $('#Navbar').outerHeight(true);
 
@@ -30,7 +29,7 @@ function scalingIMG() {
 
 }
 
-document.getElementsByTagName("BODY")[0].onresize = function () {
+document.getElementsByTagName("body")[0].onresize = function () {
     scalingIMG();
 };
 
@@ -153,6 +152,14 @@ new Vue({
         },
         logo: function () {
             update();
+        },
+        navbarToggle: function () {
+            var elem = document.getElementById('navbarSupportedContent');
+            if (elem.style.display === "block") {
+                elem.style.display = "none";
+            } else {
+                elem.style.display = "block";
+            }
         }
     }
 });
