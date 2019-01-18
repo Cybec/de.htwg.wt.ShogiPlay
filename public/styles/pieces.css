@@ -101,10 +101,6 @@ html, body {
     padding-left: 2px;
 }
 
-.container {
-    white-space: nowrap;
-}
-
 .playingField {
     width: 90vw;
     margin: auto;
@@ -229,3 +225,41 @@ html, body {
     background: #7a8a99;
     height: 3px !important;
 }
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.align-items-center {
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+
+
+.playingField .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    white-space: nowrap;
+}
+
+/*@media (min-width: 768px) {*/
+    /*.playingField .container {*/
+        /*max-width: 720px;*/
+    /*}*/
+/*}*/
+
+/*@media (min-width: 576px) {*/
+    /*.playingField .container {*/
+        /*max-width: 540px;*/
+    /*}*/
+/*}*/

@@ -1,10 +1,9 @@
 @import controllers.AssetsFinder
 
 @(implicit assets: AssetsFinder)
-<body>
 <div style=" width: 100vw;">
     <link scoped rel="stylesheet" media="screen" href="@assets.path("styles/pieces.css")">
-    <link scoped rel="stylesheet" media="screen" href="@assets.path("styles/MyNavbar.css")">
+    @*<link scoped rel="stylesheet" media="screen" href="@assets.path("styles/MyNavbar.css")">*@
 
     <div id="PlayingField" class="playingField">
         @*-------------------------------------------------------------------------------------------------*@
