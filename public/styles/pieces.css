@@ -115,7 +115,7 @@ html, body {
 }
 
 /* The Modal (background) */
-.modal {
+.myModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -130,7 +130,7 @@ html, body {
 }
 
 /* Modal Content */
-.modal-content {
+.myModal-content {
     background-color: #ffebb6;
     margin: auto;
     padding: 20px;
@@ -144,20 +144,20 @@ html, body {
     overflow-x: hidden;
 }
 
-.modal-content h1, .modal-content h2, .modal-content h3, .modal-content h4 {
+.myModal-content h1, .myModal-content h2, .myModal-content h3, .myModal-content h4 {
     font-size: 150%;
 }
 
 /* The Close Button */
-.close {
+.myClose {
     color: #523923;
     font-size: 40px;
     font-weight: bold;
     margin: auto;
 }
 
-.close:hover,
-.close:focus {
+.myClose:hover,
+.myClose:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;

@@ -1,12 +1,14 @@
 <!-- The Modal -->
-<div id="AboutModal" class="modal">
+<div id="AboutModal" class="myModal">
         <!-- Modal content -->
-    <div class="modal-content">
-        <span v-on:click="close" id="closeModal" class="close">&laquo;
+    <div class="myModal-content" style="word-wrap: break-word;
+        width: 88vw;">
+        <span v-on:click="close" id="closeModal" class="myClose">&laquo;
                 &times;
                 &raquo;
         </span>
-        <div class="Rules" align="left" style="word-wrap: break-word;">
+        <div class="Rules" align="left" style="word-wrap: break-word;
+            white-space: normal;">
             <h1> Ueber Shogi (Japanisches Schach) </h1>
             <h2> Inhaltsverzeichnis </h2>
             <ol type ="1">
@@ -20,7 +22,7 @@
                 den Koenig des Gegenspielers zu schlagen(Schachmatt) zu setzten.
             </p>
             <h3> Arten der Figuren </h3>
-            <a href="http://www.shogi.de/lernen.html">Shogi Figuren</a>
+            <a href="http://www.shogi.de/lernen.html" target="_blank">Shogi Figuren</a>
             <h3> Regelwerk </h3>
             <p> Beim modernen Shogi wird auf einem 9x9 Feld gespielt.
                 Dabei hat jeder Spieler zu Beginn des Spiels 20 Spielsteine:
@@ -37,9 +39,9 @@
             </ul>
             <p> Es beginnt immer der Spieler der von unten nach oben spielt. </p>
             <br>
-            <p> Wie beim westlichen Schach koennen auch im Shogi Figuren befoerdert werden.<br>
+            <p> Wie beim westlichen Schach koennen auch im Shogi Figuren befoerdert werden.
                 Nicht wie beim Schach allerdings nur die Bauern, sondern fast jede Figur abgesehen vom Koenig<br>
-                und den Gold-und-Silber-Generaelen koennen befoerdert werden.<br>
+                und den Gold-und-Silber-Generaelen koennen befoerdert werden.
                 Diese Befoerderungsmoeglichkeit findet statt sobald man mit einer Figur eines der letzten 3 Felder der<br>
                 gegenueberliegenden Spielseite erreicht.
         </p>
@@ -49,10 +51,23 @@
                 koennen. Dadurch ist Shogi sehr viel komplexer als Schach.
         </p>
             <h3>Simulation</h3>
-            Die Simulation wurde aus dem YoutTube Video <a href="https://www.youtube.com/watch?v=s5JF89Ayzyg">Shogi Openings: Quick Ishida Attack #1</a>
-            generiert.
-            @*<iframe width="560" height="315" src="https://www.youtube.com/watch?v=s5JF89Ayzyg" frameborder="0" allowfullscreen></iframe>*@
+            Die Simulation wurde aus dem YoutTube Video <a href="https://www.youtube.com/watch?v=s5JF89Ayzyg" target="_blank">Shogi Openings: Quick Ishida Attack #1</a>
+            generiert. <br>
 
+            <div style="text-align: center;
+                position: relative;
+                width: 100%;
+                padding-bottom: 100%;">
+                <iframe src="https://www.youtube.com/embed/s5JF89Ayzyg"
+                frameborder="0"
+                allowfullscreen
+                style="padding-top: 20px;
+                    max-width: 700px;
+                    max-height: 414px;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;"></iframe>
+            </div>
         </div>
 
     </div>
