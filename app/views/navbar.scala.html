@@ -17,32 +17,35 @@
         </button>
 
         <div class="collapse MyNavbar-collapse" id="navbarSupportedContent">
-            <ul class="MyNavbar-nav mr-auto">
+            <ul class="MyNavbar-nav mr-auto" style="font-size: medium;">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Game
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
-                        <a class="dropdown-item" href="#" v-on:click="newGame">New</a>
-                        <a class="dropdown-item" href="#" v-on:click="emptyGame">Empty</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" v-on:click="saveGame">Save</a>
-                        <a class="dropdown-item" href="#" v-on:click="loadGame">Load</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" v-on:click="aboutGame">About</a>
-                    </div>
+                    <a class="nav-link" href="#" v-on:click="newGame">New</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Edit
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: x-large">
-                        <a class="dropdown-item" href="#" v-on:click="undoGame">Undo</a>
-                        <a class="dropdown-item" href="#" v-on:click="redoGame">Redo</a>
-                    </div>
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="emptyGame">Empty</a>
                 </li>
-
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="saveGame">Save</a>
+                </li>
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="loadGame">Load</a>
+                </li>
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="aboutGame">About</a>
+                </li>
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="undoGame">Undo</a>
+                </li>
+                
+                <li>
+                    <a class="nav-link" href="#" v-on:click="redoGame">Redo</a>
+                </li>
+                
                 <li id="Simulation" class="nav-item">
                     <a class="nav-link" href="#" v-on:click="simulation">Simulation</a>
                 </li>

@@ -202,64 +202,8 @@ html, body {
     margin-bottom: 50px;
 }
 
-.myNavbarItems {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: 0px !important;
-    font-size: x-large !important;
-    color: #6b6656 !important;
-    margin-top: 5px;
-    padding: 6px 12px;
-    font-weight: bold;
-    font-family: Arial;
-    text-shadow: none;
-    /*#ffebb6*/
+.nav-link:after {
+    content: "|";
+    position: absolute;
+    padding-left: 4px;
 }
-
-.dropdown-menu {
-    background: #feffe9;
-    font-size: large !important;
-}
-
-.divider {
-    background: #7a8a99;
-    height: 3px !important;
-}
-
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.align-items-center {
-    -ms-flex-align: center !important;
-    align-items: center !important;
-}
-
-
-
-.playingField .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-
-    white-space: nowrap;
-}
-
-/*@media (min-width: 768px) {*/
-    /*.playingField .container {*/
-        /*max-width: 720px;*/
-    /*}*/
-/*}*/
-
-/*@media (min-width: 576px) {*/
-    /*.playingField .container {*/
-        /*max-width: 540px;*/
-    /*}*/
-/*}*/
