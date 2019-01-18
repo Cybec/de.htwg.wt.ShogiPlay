@@ -83,11 +83,15 @@ const PlayField = new Vue({
 
     created() {
         fetch('shogi/boardToJson')
-            .then(response => response.json())
-            .then(json => {
-                update(this);
-                console.log("");
-            })
+        .then(res => res.text())
+        .then(text => {
+            // .then(response => response.json())
+            // .then(json => {
+            //     update(this);
+            // var text2 = JSON.parse(text);
+            update();
+            // console.log(text2);
+        })
     },
     methods: {
         pieceClicked: function (event) {
@@ -107,41 +111,41 @@ new Vue({
         },
         emptyGame: function () {
             fetch('shogi/empty')
-                .then(response => response.json())
-                .then(json => {
-                    update();
-                })
+        .then(res => res.text())
+        .then(text => {
+                update();
+            })
         },
         saveGame: function () {
             fetch('shogi/save')
-                .then(response => response.json())
-                .then(json => {
-                    update();
-                })
+        .then(res => res.text())
+        .then(text => {
+                update();
+            })
         },
         loadGame: function () {
             fetch('shogi/load')
-                .then(response => response.json())
-                .then(json => {
-                    update();
-                })
+        .then(res => res.text())
+        .then(text => {
+                update();
+            })
         },
         aboutGame: function () {
             document.getElementById('AboutModal').style.display = "block";
         },
         undoGame: function () {
             fetch('shogi/undo')
-                .then(response => response.json())
-                .then(json => {
-                    update();
-                })
+        .then(res => res.text())
+        .then(text => {
+                update();
+            })
         },
         redoGame: function () {
             fetch('shogi/redo')
-                .then(response => response.json())
-                .then(json => {
-                    update();
-                })
+        .then(res => res.text())
+        .then(text => {
+                update();
+            })
         },
         simulation: function () {
             Simulation()
@@ -154,32 +158,33 @@ new Vue({
 
 function update() {
     fetch('shogi/boardToJson')
-        .then(response => response.json())
-        .then(json => {
-            //Reset Conquered
-            PlayField.playerFirstCon = [];
-            PlayField.playerSecondCon = [];
-            let i;
-            for (i = 0; i < json.board.length; i++) {
-                Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
-                Vue.set(PlayField.img, i, json.board[i].piece.img);
-            }
-            for (i = 0; i < json.playerFirstConquered.length; i++) {
-                Vue.set(PlayField.playerFirstCon, i, {
-                    img: json.playerFirstConquered[i].img,
-                    name: json.playerFirstConquered[i].pieceName.trim(),
-                    posMoves: json.playerFirstConquered[i].posMovs
-                });
-            }
-            for (i = 0; i < json.playerSecondConquered.length; i++) {
-                Vue.set(PlayField.playerSecondCon, i, {
-                    img: json.playerSecondConquered[i].img,
-                    name: json.playerSecondConquered[i].pieceName.trim(),
-                    posMoves: json.playerSecondConquered[i].posMovs
-                });
-            }
-            scalingIMG()
-        });
+        .then(res => res.text())
+        .then(text => {
+        //Reset Conquered
+        var json = JSON.parse(text);
+        PlayField.playerFirstCon = [];
+        PlayField.playerSecondCon = [];
+        let i;
+        for (i = 0; i < json.board.length; i++) {
+            Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
+            Vue.set(PlayField.img, i, json.board[i].piece.img);
+        }
+        for (i = 0; i < json.playerFirstConquered.length; i++) {
+            Vue.set(PlayField.playerFirstCon, i, {
+                img: json.playerFirstConquered[i].img,
+                name: json.playerFirstConquered[i].pieceName.trim(),
+                posMoves: json.playerFirstConquered[i].posMovs
+            });
+        }
+        for (i = 0; i < json.playerSecondConquered.length; i++) {
+            Vue.set(PlayField.playerSecondCon, i, {
+                img: json.playerSecondConquered[i].img,
+                name: json.playerSecondConquered[i].pieceName.trim(),
+                posMoves: json.playerSecondConquered[i].posMovs
+            });
+        }
+        scalingIMG()
+    });
 }
 
 function clickOnBoard(clicked_id) {
@@ -296,8 +301,8 @@ function newGame() {
     helper = 0;
     helper2 = 0;
     fetch('shogi/new')
-        .then(response => response.json())
-        .then(json => {
+        .then(res => res.text())
+        .then(text => {
             update();
         })
 }
