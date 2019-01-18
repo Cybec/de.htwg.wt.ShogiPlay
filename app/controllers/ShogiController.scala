@@ -13,11 +13,15 @@ import play.api.i18n.I18nSupport
 import play.api.mvc._
 import utils.auth.DefaultEnv
 import play.api.libs.json._
+
+import play.api.libs.streams.ActorFlow
+import akka.actor.{ Actor, ActorRef, Props }
 import scala.concurrent.Future
 
 @Singleton
 class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil: WebJarsUtil, system: ActorSystem, assets: AssetsFinder, mat: Materializer, silhouette: Silhouette[DefaultEnv]) extends AbstractController(cc) with I18nSupport {
   val gameController: ControllerInterface = Shogi.controller
+  var c: ActorRef = null
 
   //
   //  //  //  val tui = new Tui(gameController)
@@ -29,21 +33,25 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil:
 
   def emptyBoard: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.createEmptyBoard()
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
   def newBoard(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.createNewBoard()
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
   def undo: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.undoCommand
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
   def redo: Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.redoCommand
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
@@ -61,23 +69,31 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil:
       case MoveResult.invalidMove => Future.successful(Ok("<p>InvalidMove</p>"))
       case MoveResult.validMove =>
         if (gameController.promotable((i, j))) {
+          notifyWebsockets()
           Future.successful(Ok("<p>Promotable</p>"))
         } else
-          Future.successful(Ok(JsonBoard()))
-      case MoveResult.kingSlain => Future.successful(Ok("<p>KingSlain</p>"))
+          notifyWebsockets()
+        Future.successful(Ok(JsonBoard()))
+      case MoveResult.kingSlain => {
+        notifyWebsockets()
+        Future.successful(Ok("<p>KingSlain</p>"))
+      }
     }
   }
 
   def promotePiece(x: Int, y: Int, i: Int, j: Int, promotion: String): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     if (promotion == "y")
       gameController.promotePiece((i, j))
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
   def moveConqueredPiece(pieceAbbrevation: String, x: Int, y: Int): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     if (gameController.moveConqueredPiece(pieceAbbrevation, (x, y))) {
+      notifyWebsockets()
       Future.successful(Ok(JsonBoard()))
     } else {
+      notifyWebsockets()
       Future.successful(Ok(gameController.boardToString() + "\n\n" + "<h1>This move is not valid</h1>"))
     }
   }
@@ -93,11 +109,13 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil:
 
   def save(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.save
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
   def load(): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.load
+    notifyWebsockets()
     Future.successful(Ok(JsonBoard()))
   }
 
@@ -175,5 +193,38 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit webJarsUtil:
           )
         }))
   }
+
+  def notifyWebsockets(): Unit = {
+    c ! JsonBoard().toString
+  }
+
+  def socket: WebSocket = WebSocket.accept[String, String] { _ =>
+    ActorFlow.actorRef { out =>
+      println("Connect received")
+      c = out
+      ShogiWebSocketActorFactory.create(out)
+    }
+  }
+
+  object ShogiWebSocketActorFactory {
+    def create(out: ActorRef): Props = {
+      Props(new ShogiWebSocketActor(out))
+    }
+  }
+
+  class ShogiWebSocketActor(out: ActorRef) extends Actor {
+
+    def receive: Receive = {
+      case msg: String =>
+        out ! JsonBoard().toString
+        println("Sent Json to Client" + msg)
+    }
+
+    def sendJsonToClient(): Unit = {
+      println("Received event from Controller")
+      out ! JsonBoard().toString
+    }
+  }
+
 }
 
