@@ -23,11 +23,6 @@ function scalingIMG() {
     } else {
         square = width / 14;
     }
-
-    // console.log(width);
-    // console.log(height);
-    // console.log(square);
-
     [].forEach.call(els, function (el) {
         el.style.width = square + "px";
         el.style.height = square + "px";
@@ -91,6 +86,7 @@ const PlayField = new Vue({
             .then(response => response.json())
             .then(json => {
                 update(this);
+                console.log("");
             })
     },
     methods: {
@@ -163,7 +159,6 @@ function update() {
             //Reset Conquered
             PlayField.playerFirstCon = [];
             PlayField.playerSecondCon = [];
-
             let i;
             for (i = 0; i < json.board.length; i++) {
                 Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
