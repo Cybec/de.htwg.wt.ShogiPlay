@@ -10,9 +10,6 @@ html, body {
     border-collapse: collapse;
 }
 
-.background {
-}
-
 .gamefield {
     margin-left: 10%;
     margin-right: 10%;
@@ -45,20 +42,6 @@ html, body {
     background: #ffebb6;
     border-color: #7a8a99;
 }
-
-/*.MyTable {*/
-/*display: table;*/
-
-/*border-style: solid;*/
-/*border-width: 0.1em;*/
-/*border-color: #7a8a99;*/
-
-/*text-align: center;*/
-/*}*/
-
-/*.rowGroup {*/
-/*display: table-row-group;*/
-/*}*/
 
 .cell {
     display: table-cell;
@@ -130,50 +113,6 @@ html, body {
 .navbar{
     font-size: large;
 }
-/*@media (max-height: 890px) {*/
-/*!* CSS that should be displayed if width is equal to or less than 800px goes here *!*/
-/*.img_style {*/
-/*height: 40px;*/
-/*width: 40px;*/
-/*}*/
-
-/*.img_style_logo {*/
-/*height: 30px;*/
-/*width: 30px;*/
-/*}*/
-
-/*}*/
-
-/*@media (max-width: 810px) {*/
-/*!* CSS that should be displayed if width is equal to or less than 800px goes here *!*/
-/*.img_style {*/
-/*height: 40px;*/
-/*width: 40px;*/
-/*}*/
-
-/*.img_style_logo {*/
-/*height: 30px;*/
-/*width: 30px;*/
-/*}*/
-
-/*}*/
-
-/*@media (max-height: 710px) {*/
-/*!* CSS that should be displayed if width is equal to or less than 800px goes here *!*/
-/*.img_style {*/
-/*height: 30px;*/
-/*width: 30px;*/
-/*}*/
-/*}*/
-
-/*@media (max-width: 640px) {*/
-/*!* CSS that should be displayed if width is equal to or less than 800px goes here *!*/
-/*.img_style {*/
-/*height: 30px;*/
-/*width: 30px;*/
-/*}*/
-/*}*/
-
 
 /* The Modal (background) */
 .modal {
@@ -253,7 +192,7 @@ html, body {
 .myNavbar {
     width: 100vw !important;
     margin: 0px !important;
-    max-width: 4000px;
+    max-width: 40000px !important;
     background-color: #cccccc;
     background-image: linear-gradient(#ffebb6, white);
     /*font-size: x-large*/
