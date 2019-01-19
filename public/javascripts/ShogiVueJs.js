@@ -351,7 +351,7 @@ function Simulation() {
 
 function connectWebSocket() {
     console.log(window.location.href);
-    var html = window.location.href.replace("http", "")
+    var html = window.location.href.replace("http", "");
     html = html.replace("https", "");
     html = html.replace("//", "");
     html = html.replace(":", "");
@@ -359,7 +359,7 @@ function connectWebSocket() {
     var websocket = new WebSocket("ws:" + html + "/websocket");
     websocket.setTimeout
 
-    websocket.onopen = function (event) {
+    websocket.onopen = function () {
         console.log("Connected to Websocket");
     };
 
