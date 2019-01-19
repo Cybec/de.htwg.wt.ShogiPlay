@@ -350,6 +350,7 @@ function Simulation() {
 }
 
 function connectWebSocket() {
+    console.log(window.location.href);
     var html = window.location.href.replace("http", "")
     html = html.replace("https", "");
     html = html.replace("//", "");
