@@ -1,22 +1,22 @@
-var lastPM = "";
-var last_clicked_id = "";
-var kingSlainEnd = false;
+let lastPM = "";
+let last_clicked_id = "";
+let kingSlainEnd = false;
 
 //Helper Simulation
-var helper = 0;
-var helper2 = 0;
-var simuList;
-var simuList_All = [];
-var simuCount = 1;
+let helper = 0;
+let helper2 = 0;
+let simuList;
+let simuList_All = [];
+let simuCount = 1;
 
 function scalingIMG() {
-    var width = document.getElementById('player1Container').getBoundingClientRect().width;
-    var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    let width = document.getElementById('player1Container').getBoundingClientRect().width;
+    let height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     height -= $('#Navbar').outerHeight(true);
 
-    var els = document.getElementsByClassName("img_style");
+    let els = document.getElementsByClassName("img_style");
 
-    var square = 0;
+    let square = 0;
     if (height < width) {
         square = height / 14;
     } else {
@@ -46,7 +46,7 @@ $(document).ready(function () {
             dataType: 'Json',
 
             success: function (simu) {
-                for (var k in simu) {
+                for (let k in simu) {
                     simuList_All.push(simu[k])
                 }
                 simuList = simuList_All[0];
@@ -89,7 +89,7 @@ const PlayField = new Vue({
                 // .then(response => response.json())
                 // .then(json => {
                 //     update(this);
-                // var text2 = JSON.parse(text);
+                // let text2 = JSON.parse(text);
                 update();
                 // console.log(text2);
             })
@@ -155,7 +155,7 @@ new Vue({
             update();
         },
         navbarToggle: function () {
-            var elem = document.getElementById('navbarSupportedContent');
+            let elem = document.getElementById('navbarSupportedContent');
             if (elem.style.display === "block") {
                 elem.style.display = "none";
             } else {
@@ -170,7 +170,7 @@ function update() {
         .then(res => res.text())
         .then(text => {
             //Reset Conquered
-            var json = JSON.parse(text);
+            let json = JSON.parse(text);
             PlayField.playerFirstCon = [];
             PlayField.playerSecondCon = [];
             let i;
@@ -199,7 +199,7 @@ function update() {
 function clickOnBoard(clicked_id) {
     if (lastPM.includes(clicked_id.replace("-", ","))) {
         if ('0123456789'.indexOf(last_clicked_id.charAt(0)) !== -1) {
-            var destLink = "shogi/mv/" +
+            let destLink = "shogi/mv/" +
                 last_clicked_id.charAt(0) + "/" +
                 last_clicked_id.charAt(2) + "/" +
                 clicked_id.charAt(0) + "/" +
@@ -253,7 +253,7 @@ function clickOnBoard(clicked_id) {
 function ResetBlueFields() {
 //Set all Blue Divs back to default
     lastPM.split("-").forEach(function (item) {
-        var res = item.replace("(", "").replace(")", "").replace(",", "-");
+        let res = item.replace("(", "").replace(")", "").replace(",", "-");
         if (res.length !== 0) {
             document.getElementById(res).style.backgroundColor = "#ffebb6";
         }
@@ -262,10 +262,10 @@ function ResetBlueFields() {
 
 function GetPosMovColorize(clicked_id) {
 //Get possible moves
-    var a = document.getElementById("Label_" + clicked_id).innerText.split("-");
+    let a = document.getElementById("Label_" + clicked_id).innerText.split("-");
     lastPM = document.getElementById("Label_" + clicked_id).innerText;
     a.forEach(function (item) {
-        var res = item.replace("(", "").replace(")", "").replace(",", "-");
+        let res = item.replace("(", "").replace(")", "").replace(",", "-");
         if (res.length !== 0) {
             document.getElementById(res).style.backgroundColor = "blue";
         }
@@ -273,7 +273,7 @@ function GetPosMovColorize(clicked_id) {
 }
 
 function Promotable(currentLink) {
-    var linkYesNo = currentLink;
+    let linkYesNo = currentLink;
     if (confirm("Do you want to Promote the Piece?")) {
         linkYesNo += "/y";
     } else {
@@ -351,13 +351,20 @@ function Simulation() {
 
 function connectWebSocket() {
     console.log(window.location.href);
-    var html = window.location.href.replace("http", "");
+    let html = window.location.href.replace("http", "");
     html = html.replace("https", "");
     html = html.replace("//", "");
     html = html.replace(":", "");
+    html = html.replace("#", "");
     html = html.replace("ss", "s");
     console.log(html);
-    var websocket = new WebSocket("wss:" + html + "/websocket");
+    let ws_or_wss = "ws";
+    if (!html.includes("local")) {
+        ws_or_wss += "s";
+    }
+    console.log("Connect to: " + ws_or_wss + ":" + html + "/websocket")
+
+    let websocket = new WebSocket(ws_or_wss + ":" + html + "/websocket");
     websocket.setTimeout
 
     websocket.onopen = function () {
@@ -375,7 +382,7 @@ function connectWebSocket() {
     websocket.onmessage = function (e) {
         console.log("MSG_ receive");
         if (typeof e.data === "string") {
-            var json = JSON.parse(e.data);
+            // let json = JSON.parse(e.data);
             update();
         }
 

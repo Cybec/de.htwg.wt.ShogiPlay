@@ -1,6 +1,6 @@
 import com.typesafe.sbt.SbtScalariform._
-
 import scalariform.formatter.preferences._
+import sbt.Resolver
 
 name := "play-silhouette-seed"
 
@@ -11,6 +11,8 @@ scalaVersion := "2.12.7"
 resolvers += Resolver.jcenterRepo
 
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+
+libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.0.0-M2"
 
 libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette" % "5.0.7",
