@@ -165,35 +165,62 @@ new Vue({
     }
 });
 
+//Updatefunktion fue Vue.js ohne Websocket. Da websocket drin wird diese Funktion nicht benuzt.
 function update() {
-    fetch('shogi/boardToJson')
-        .then(res => res.text())
-        .then(text => {
-            //Reset Conquered
-            let json = JSON.parse(text);
-            PlayField.playerFirstCon = [];
-            PlayField.playerSecondCon = [];
-            let i;
-            for (i = 0; i < json.board.length; i++) {
-                Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
-                Vue.set(PlayField.img, i, json.board[i].piece.img);
-            }
-            for (i = 0; i < json.playerFirstConquered.length; i++) {
-                Vue.set(PlayField.playerFirstCon, i, {
-                    img: json.playerFirstConquered[i].img,
-                    name: json.playerFirstConquered[i].pieceName.trim(),
-                    posMoves: json.playerFirstConquered[i].posMovs
-                });
-            }
-            for (i = 0; i < json.playerSecondConquered.length; i++) {
-                Vue.set(PlayField.playerSecondCon, i, {
-                    img: json.playerSecondConquered[i].img,
-                    name: json.playerSecondConquered[i].pieceName.trim(),
-                    posMoves: json.playerSecondConquered[i].posMovs
-                });
-            }
-            scalingIMG()
+    // fetch('shogi/boardToJson')
+    //     .then(res => res.text())
+    //     .then(text => {
+    //         //Reset Conquered
+    //         let json = JSON.parse(text);
+    //         PlayField.playerFirstCon = [];
+    //         PlayField.playerSecondCon = [];
+    //         let i;
+    //         for (i = 0; i < json.board.length; i++) {
+    //             Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
+    //             Vue.set(PlayField.img, i, json.board[i].piece.img);
+    //         }
+    //         for (i = 0; i < json.playerFirstConquered.length; i++) {
+    //             Vue.set(PlayField.playerFirstCon, i, {
+    //                 img: json.playerFirstConquered[i].img,
+    //                 name: json.playerFirstConquered[i].pieceName.trim(),
+    //                 posMoves: json.playerFirstConquered[i].posMovs
+    //             });
+    //         }
+    //         for (i = 0; i < json.playerSecondConquered.length; i++) {
+    //             Vue.set(PlayField.playerSecondCon, i, {
+    //                 img: json.playerSecondConquered[i].img,
+    //                 name: json.playerSecondConquered[i].pieceName.trim(),
+    //                 posMoves: json.playerSecondConquered[i].posMovs
+    //             });
+    //         }
+    //         scalingIMG()
+    //     });
+}
+
+function socketUpdate(json) {
+    //Reset Conquered
+    PlayField.playerFirstCon = [];
+    PlayField.playerSecondCon = [];
+    let i;
+    for (i = 0; i < json.board.length; i++) {
+        Vue.set(PlayField.posMoves, i, json.board[i].posMovs);
+        Vue.set(PlayField.img, i, json.board[i].piece.img);
+    }
+    for (i = 0; i < json.playerFirstConquered.length; i++) {
+        Vue.set(PlayField.playerFirstCon, i, {
+            img: json.playerFirstConquered[i].img,
+            name: json.playerFirstConquered[i].pieceName.trim(),
+            posMoves: json.playerFirstConquered[i].posMovs
         });
+    }
+    for (i = 0; i < json.playerSecondConquered.length; i++) {
+        Vue.set(PlayField.playerSecondCon, i, {
+            img: json.playerSecondConquered[i].img,
+            name: json.playerSecondConquered[i].pieceName.trim(),
+            posMoves: json.playerSecondConquered[i].posMovs
+        });
+    }
+    scalingIMG()
 }
 
 function clickOnBoard(clicked_id) {
@@ -350,14 +377,12 @@ function Simulation() {
 }
 
 function connectWebSocket() {
-    console.log(window.location.href);
-    let html = window.location.href.replace("http", "");
-    html = html.replace("https", "");
-    html = html.replace("//", "");
-    html = html.replace(":", "");
-    html = html.replace("#", "");
-    html = html.replace("ss", "s");
-    console.log(html);
+    let html = window.location.href.replace("http", "")
+        .replace("https", "")
+        .replace("//", "")
+        .replace(":", "")
+        .replace("#", "")
+        .replace("ss", "s");
     let ws_or_wss = "ws";
     if (!html.includes("local")) {
         ws_or_wss += "s";
@@ -382,8 +407,8 @@ function connectWebSocket() {
     websocket.onmessage = function (e) {
         console.log("MSG_ receive");
         if (typeof e.data === "string") {
-            // let json = JSON.parse(e.data);
-            update();
+            let json = JSON.parse(e.data);
+            socketUpdate(json);
         }
 
     };
