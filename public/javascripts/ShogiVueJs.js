@@ -118,20 +118,20 @@ new Vue({
                     update();
                 })
         },
-        saveGame: function () {
-            fetch('shogi/save')
-                .then(res => res.text())
-                .then(text => {
-                    update();
-                })
-        },
-        loadGame: function () {
-            fetch('shogi/load')
-                .then(res => res.text())
-                .then(text => {
-                    update();
-                })
-        },
+        // saveGame: function () {
+        //     fetch('shogi/save')
+        //         .then(res => res.text())
+        //         .then(text => {
+        //             update();
+        //         })
+        // },
+        // loadGame: function () {
+        //     fetch('shogi/load')
+        //         .then(res => res.text())
+        //         .then(text => {
+        //             update();
+        //         })
+        // },
         aboutGame: function () {
             document.getElementById('AboutModal').style.display = "block";
         },
