@@ -373,9 +373,9 @@ function Simulation() {
         } else {
             simuCount += 1;
             simuList = simuList_All[simuCount];
-            console.log(simuList_All[simuCount]);
+            // console.log(simuList_All[simuCount]);
         }
-        console.log(simuList);
+        // console.log(simuList);
     }
 }
 
