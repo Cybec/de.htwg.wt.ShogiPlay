@@ -89,8 +89,9 @@ const PlayField = new Vue({
                 // .then(response => response.json())
                 // .then(json => {
                 //     update(this);
-                // let text2 = JSON.parse(text);
-                update();
+                let text2 = JSON.parse(text);
+                socketUpdate(text2);
+                // update();
                 // console.log(text2);
             })
     },
@@ -370,9 +371,11 @@ function Simulation() {
             helper = 0;
             helper2 = 0;
         } else {
-            simuList = simuList_All[simuCount];
             simuCount += 1;
+            simuList = simuList_All[simuCount];
+            console.log(simuList_All[simuCount]);
         }
+        console.log(simuList);
     }
 }
 

@@ -15,13 +15,19 @@ import utils.auth.DefaultEnv
 import play.api.libs.json._
 import play.api.libs.streams.ActorFlow
 import akka.actor.{ Actor, ActorRef, Props }
+import de.htwg.se.Shogi.model.pieceComponent.pieceBaseImpl.King
 
 import scala.concurrent.Future
 import scala.swing.{ Publisher, Reactor }
-
 import scala.swing.event.Event
 
 class UpdateAll extends Event
+
+class InvalidMove extends Event
+
+class Promotable extends Event
+
+class KingSlain extends Event
 
 @Singleton
 class ShogiController @Inject() (cc: ControllerComponents)(implicit
@@ -76,16 +82,20 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit
 
   def movePiece(x: Int, y: Int, i: Int, j: Int): Action[AnyContent] = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.movePiece((x, y), (i, j)) match {
-      case MoveResult.invalidMove => Future.successful(Ok("<p>InvalidMove</p>"))
+      case MoveResult.invalidMove => {
+        publish(new InvalidMove)
+        Future.successful(Ok("<p>InvalidMove</p>"))
+      }
       case MoveResult.validMove =>
         if (gameController.promotable((i, j))) {
-          publish(new UpdateAll)
+          publish(new Promotable)
           Future.successful(Ok("<p>Promotable</p>"))
-        } else
+        } else {
           publish(new UpdateAll)
-        Future.successful(Ok(JsonBoard()))
+          Future.successful(Ok(JsonBoard()))
+        }
       case MoveResult.kingSlain => {
-        publish(new UpdateAll)
+        publish(new KingSlain)
         Future.successful(Ok("<p>KingSlain</p>"))
       }
     }
@@ -228,6 +238,9 @@ class ShogiController @Inject() (cc: ControllerComponents)(implicit
 
     reactions += {
       case _: UpdateAll => sendJsonToClient()
+      case _: InvalidMove =>
+      case _: Promotable =>
+      case _: KingSlain =>
     }
 
     def sendJsonToClient(): Unit = {
