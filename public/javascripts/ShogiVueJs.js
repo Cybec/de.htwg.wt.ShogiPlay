@@ -356,7 +356,7 @@ function connectWebSocket() {
     // html = html.replace("//", "");
     // html = html.replace(":", "");
     // html = html.replace("ss", "s");
-    console.log(html);
+    // console.log(html);
     var websocket = new WebSocket("ws:" + window.location.href + "/websocket");
     websocket.setTimeout
 
