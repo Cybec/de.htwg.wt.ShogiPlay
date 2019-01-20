@@ -351,13 +351,13 @@ function Simulation() {
 
 function connectWebSocket() {
     console.log(window.location.href);
-    var html = window.location.href.replace("http", "");
-    html = html.replace("https", "");
-    html = html.replace("//", "");
-    html = html.replace(":", "");
-    html = html.replace("ss", "s");
+    // var html = window.location.href.replace("http", "");
+    // html = html.replace("https", "");
+    // html = html.replace("//", "");
+    // html = html.replace(":", "");
+    // html = html.replace("ss", "s");
     console.log(html);
-    var websocket = new WebSocket("ws:" + html + "/websocket");
+    var websocket = new WebSocket("ws:" + window.location.href + "/websocket");
     websocket.setTimeout
 
     websocket.onopen = function () {
